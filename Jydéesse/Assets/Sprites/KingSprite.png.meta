@@ -8,6 +8,24 @@ TextureImporter:
   - first:
       213: -6099634974411505155
     second: KingSprite_backward
+  - first:
+      213: 2291869709396182021
+    second: KingSprite_Front
+  - first:
+      213: -4567946240168598546
+    second: KingSprite_Back
+  - first:
+      213: 6847399632422725138
+    second: KingSprite_Right
+  - first:
+      213: -8839671333663477870
+    second: KingSprite_FrontRight
+  - first:
+      213: 3285512106783231374
+    second: KingSprite_4
+  - first:
+      213: -7572876592536482800
+    second: KingSprite_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KingSprite_forward
+      name: KingSprite_Front
       rect:
         serializedVersion: 2
-        x: 0
-        y: 116
-        width: 315
-        height: 433
+        x: 11
+        y: 127
+        width: 296
+        height: 414
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,29 +137,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01c0ef5acdcb7e690800000000000000
-      internalID: -7572876592536482800
+      spriteID: 504890c9b5b5ecf10800000000000000
+      internalID: 2291869709396182021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KingSprite_backward
+      name: KingSprite_Back
       rect:
         serializedVersion: 2
-        x: 323
-        y: 116
-        width: 328
-        height: 434
+        x: 337
+        y: 132
+        width: 297
+        height: 413
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df147aade4eb95ba0800000000000000
-      internalID: -6099634974411505155
+      spriteID: ee36ba9b8156b90c0800000000000000
+      internalID: -4567946240168598546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KingSprite_Right
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 132
+        width: 268
+        height: 415
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21662b5cfa9d60f50800000000000000
+      internalID: 6847399632422725138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KingSprite_FrontRight
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 136
+        width: 283
+        height: 406
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fe8c1b1cd235580800000000000000
+      internalID: -8839671333663477870
       vertices: []
       indices: 
       edges: []

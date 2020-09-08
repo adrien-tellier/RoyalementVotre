@@ -1,0 +1,97 @@
+﻿using System.Collections;
+using UnityEngine;
+
+public class CameraMovement : MonoBehaviour
+{
+    [SerializeField]
+    private float m_transitionDuration = 1f;
+
+    [SerializeField]
+    private Vector3[] m_positions = null;
+
+    [SerializeField]
+    private uint m_startPosition = 1;
+
+    private uint m_currentPosition = 1;
+    private uint m_previousPosition = 1;
+    private Coroutine m_transition = null;
+    private bool m_isTransitioning = false;
+
+    private void Awake()
+    {
+        transform.position = m_positions[m_startPosition];
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (!m_isTransitioning)
+                MoveLeft();
+            else
+                StartCoroutine(WaitEndTransition(false));
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (!m_isTransitioning)
+                MoveRight();
+            else
+                StartCoroutine(WaitEndTransition(true));
+        }
+    }
+
+    void MoveLeft()
+    {
+        if (m_currentPosition > 0)
+        {
+            m_previousPosition = m_currentPosition;
+            m_currentPosition--;
+            if (m_transition != null)
+                StopCoroutine(m_transition);
+            m_transition = StartCoroutine(CameraPositionTransition());
+        }
+    }
+
+    void MoveRight()
+    {
+        if (m_currentPosition < m_positions.Length - 1)
+        {
+            m_previousPosition = m_currentPosition;
+            m_currentPosition++;
+            if (m_transition != null)
+                StopCoroutine(m_transition);
+            m_transition = StartCoroutine(CameraPositionTransition());
+        }
+    }
+
+    IEnumerator CameraPositionTransition()
+    {
+        m_isTransitioning = true;
+        float duration = 0f;
+        while(Vector3.Distance(transform.position, m_positions[m_currentPosition]) > 0.1f)
+        {
+            transform.position = Vector3.Slerp(m_positions[m_previousPosition], m_positions[m_currentPosition], duration / m_transitionDuration);
+            duration += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        transform.position = m_positions[m_currentPosition];
+        m_isTransitioning = false;
+    }
+
+    IEnumerator WaitEndTransition(bool isRight)
+    {
+        while (m_isTransitioning)
+            yield return new WaitForFixedUpdate();
+        if (isRight)
+            MoveRight();
+        else
+            MoveLeft();
+    }
+}

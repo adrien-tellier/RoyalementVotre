@@ -18,7 +18,6 @@ public class Character : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Clic");
         gameObject.GetComponentInParent<CharacterPool>().SendPositionToPlayer(transform.position);
     }
 }

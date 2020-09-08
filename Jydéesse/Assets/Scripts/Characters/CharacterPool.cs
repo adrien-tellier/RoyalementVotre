@@ -14,7 +14,6 @@ public class CharacterPool : MonoBehaviour
     void Start()
     {
         m_characters = gameObject.GetComponentsInChildren<Character>();
-        Debug.Log(m_characters.Length);
     }
 
     // Update is called once per frame
@@ -24,7 +23,6 @@ public class CharacterPool : MonoBehaviour
 
     public void SendPositionToPlayer(Vector3 position)
     {
-        Debug.Log(position);
         m_player.Destination = position;
     }
 }

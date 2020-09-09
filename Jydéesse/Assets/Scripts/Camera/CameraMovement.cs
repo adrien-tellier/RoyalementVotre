@@ -35,15 +35,11 @@ public class CameraMovement : MonoBehaviour
         {
             if (!m_isTransitioning)
                 MoveLeft();
-            else
-                StartCoroutine(WaitEndTransition(false));
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (!m_isTransitioning)
                 MoveRight();
-            else
-                StartCoroutine(WaitEndTransition(true));
         }
     }
 
@@ -85,7 +81,7 @@ public class CameraMovement : MonoBehaviour
         m_isTransitioning = false;
     }
 
-    IEnumerator WaitEndTransition(bool isRight)
+    /*IEnumerator WaitEndTransition(bool isRight)
     {
         while (m_isTransitioning)
             yield return new WaitForFixedUpdate();
@@ -93,5 +89,5 @@ public class CameraMovement : MonoBehaviour
             MoveRight();
         else
             MoveLeft();
-    }
+    }*/
 }

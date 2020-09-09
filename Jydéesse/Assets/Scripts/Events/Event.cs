@@ -16,33 +16,30 @@ public class Event : MonoBehaviour
 {
     // How the event is displayed
     [SerializeField]
-    public string m_startDialogue = "";
-
-    protected string m_endDialogue = "";
-    protected string m_comebackDialogue = "";
-
-    // not available, available, done
-    protected EStatus m_status = EStatus.AVAILABLE;
+    protected string m_startDialogue = ""; // what appears when the event is launched
+    
+    [SerializeField]
+    protected string m_comebackDialogue = ""; // what appears when the player come back to the character
 
     [SerializeField]
     private Text m_dialogueBoxText = null;
+    
+
+    protected EStatus m_status = EStatus.AVAILABLE;
 
     [SerializeField]
     protected Player m_player = null;
 
-    public void SetDialogue(string endDialogue)
-    {
-        m_endDialogue = endDialogue;
-    }
-
+    // When the player arrives next to the character, displays the startDialogue
     protected void OnMouseDown() 
     {
         m_dialogueBoxText.text = m_startDialogue;    
     }
 
-    protected void DisplayDialogue()
+    // Write the given text in the dialogue box
+    protected void DisplayDialogue(string text)
     {
-        m_dialogueBoxText.text = m_endDialogue;
+        m_dialogueBoxText.text = text;
     }
 
     

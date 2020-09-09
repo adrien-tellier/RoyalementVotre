@@ -5,18 +5,21 @@ using UnityEngine.Events;
 
 public class Action : MonoBehaviour
 {
-    public bool m_isAvailable = false;
-
-    [SerializeField]
-    private bool m_shouldDisapear = false;
-
     [SerializeField]
     private Player m_player = null;
 
-    public UnityEvent m_requestDone = null;
-
     [SerializeField]
     public string m_onClickDialogue = "";
+
+    private bool m_isAvailable = false;
+
+    // If the target object has to be picked up
+    [SerializeField]
+    private bool m_shouldDisapear = false;
+
+    public UnityEvent m_requestDone = null;
+
+    public bool IsAvailable { get { return m_isAvailable; } set { m_isAvailable = value; }}
 
     private void OnMouseDown() 
     {

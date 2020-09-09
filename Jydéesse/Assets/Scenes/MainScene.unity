@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_startDialogue: "Je n'ai pas assez de foin pour nourrir mes moutons cet hiver.
     Seriez vous aussi aimable que de me donner 3 bottes de foin s'il vous pla\xEEt
     votre Gr\xE2ce?"
+  m_comebackDialogue: 
   m_dialogueBoxText: {fileID: 740181072}
   m_player: {fileID: 2099273771}
   choices:
@@ -1940,31 +1941,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1016002508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016002503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f901efe4fdcd1974bb00951444d8474c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_startDialogue: "Je n'ai pas assez de foin pour nourrir mes moutons cet hiver.
-    Seriez vous aussi aimable que de me donner 3 bottes de foin s'il vous pla\xEEt
-    votre Gr\xE2ce?"
-  m_comebackDialogue: 
-  m_dialogueBoxText: {fileID: 740181072}
-  m_player: {fileID: 2099273771}
-  choices:
-  - {fileID: 11400000, guid: 6acaad79fcaed064fbc2f58abd0570a8, type: 2}
-  - {fileID: 11400000, guid: 0e8bcf1742fc12748a465970f398dcd5, type: 2}
-  - {fileID: 11400000, guid: d11a81949aacd9c4281259cbbf19540f, type: 2}
-  m_option1Button: {fileID: 1831429768}
-  m_option2Button: {fileID: 870166226}
-  m_declineButton: {fileID: 779474750}
 --- !u!1 &1060188281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +1959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1060188282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,9 +2192,9 @@ MonoBehaviour:
   m_dialogueBoxText: {fileID: 740181072}
   m_player: {fileID: 2099273771}
   m_acceptText: Merci je t'attends la
-  m_declineText: fdp
-  m_thanksText: cimer
-  m_gotDeclinedText: cassetoi
+  m_declineText: bad
+  m_thanksText: good
+  m_gotDeclinedText: still bad
   m_requestDoneText: Merci beaucoup
   m_acceptButton: {fileID: 1674631107}
   m_declineButton: {fileID: 703913584}

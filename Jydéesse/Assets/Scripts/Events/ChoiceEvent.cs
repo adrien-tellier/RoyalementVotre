@@ -59,22 +59,22 @@ public class ChoiceEvent : Event
     protected new void OnMouseDown() 
     {   
         // Do nothing if the player is already occupied
+        if (m_player.getOccupiedStatus())
+            return;
+
         if (m_status == EStatus.DONE)
-        {
             StartCoroutine("DisplayCombackDialogueWhenArrived");
-            return;
+
+        else if (m_status == EStatus.AVAILABLE)
+        {
+            m_player.setOccupiedStatus(true);
+            StartCoroutine("BeginDialogueWhenArrived");
         }
-
-        else if (m_player.getOccupiedStatus() || m_status != EStatus.AVAILABLE)
-            return;
-
-        m_player.setOccupiedStatus(true);
-        StartCoroutine("BeginDialogueWhenArrived");
     }
 
     IEnumerator BeginDialogueWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }
@@ -107,7 +107,7 @@ public class ChoiceEvent : Event
 
     IEnumerator DisplayCombackDialogueWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }

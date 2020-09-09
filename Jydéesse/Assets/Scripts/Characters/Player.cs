@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     private bool m_isOccupied;
     private bool m_isMoving = true;
 
+    private bool m_isOnQuest = false;
+
     // Movement
     [SerializeField]
     private float m_speed = 1f;
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
 
     public Vector3 Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
     public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
+    public bool IsOnQuest { get { return m_isOnQuest; } set { m_isOnQuest = value; } }
 
     // Statistic getter
     public float getFood() {return m_food;}

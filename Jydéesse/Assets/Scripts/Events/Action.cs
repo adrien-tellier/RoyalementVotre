@@ -8,6 +8,9 @@ public class Action : MonoBehaviour
     public bool m_isAvailable = false;
 
     [SerializeField]
+    private bool m_shouldDisapear = false;
+
+    [SerializeField]
     private Player m_player = null;
 
     public UnityEvent m_requestDone = null;
@@ -26,11 +29,15 @@ public class Action : MonoBehaviour
 
     IEnumerator CompleteTaskWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }
         m_requestDone.Invoke();
+
+        if (m_shouldDisapear)
+            gameObject.SetActive(false);
+            
         yield return null;
     }
 }

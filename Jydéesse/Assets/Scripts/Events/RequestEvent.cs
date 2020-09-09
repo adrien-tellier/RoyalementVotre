@@ -11,6 +11,10 @@ public class RequestEvent : Event
     [SerializeField]
     private string m_declineText;
     [SerializeField]
+    private string m_thanksText;
+    [SerializeField]
+    private string m_gotDeclinedText;
+    [SerializeField]
     private string m_requestDoneText;
 
     [SerializeField]
@@ -23,10 +27,10 @@ public class RequestEvent : Event
     private Button m_declineButton;
 
     [SerializeField]
-    private Effect acceptEffect; 
+    private Effect m_acceptEffect; 
 
     [SerializeField]
-    private Effect declineEffect; 
+    private Effect m_declineEffect; 
 
     private void Start() 
     {
@@ -35,31 +39,46 @@ public class RequestEvent : Event
 
     private void RequestCompleted()
     {
-        m_status = EStatus.DONE;
+        m_comebackDialogue = m_thanksText;
+        SetDialogue(m_action.m_onClickDialogue);
+        m_status = EStatus.REQUEST_DONE;
+        DisplayDialogue();
     }
 
     protected new void OnMouseDown() 
     {   
-        // Do nothing if the player is already occupied
-        if (m_status == EStatus.DONE)
+        if (m_status == EStatus.REQUEST_DONE)
         {
-            StartCoroutine("DisplayCombackDialogueWhenArrived");
+            StartCoroutine("DisplayRequestDoneDialogueWhenArrived");
+            m_status = EStatus.DONE;
+            m_player.IsOnQuest = false;
+            CloseEvent();
             return;
         }
 
-        else if (m_player.getOccupiedStatus() || m_status != EStatus.AVAILABLE)
+        // Do nothing if the player is already occupied
+        if (m_player.getOccupiedStatus())
             return;
 
-        m_player.setOccupiedStatus(true);
-        StartCoroutine("BeginDialogueWhenArrived");
+        else if (m_status == EStatus.DONE)
+        {
+            StartCoroutine("DisplayCombackDialogueWhenArrived");
+        }
+
+        else if (m_status == EStatus.AVAILABLE)
+        {
+            m_player.setOccupiedStatus(true);
+            StartCoroutine("BeginDialogueWhenArrived");
+        }
     }
 
     IEnumerator BeginDialogueWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }
+
         // Prompt the event and choices texts
         base.OnMouseDown();
 
@@ -73,12 +92,27 @@ public class RequestEvent : Event
 
     IEnumerator DisplayCombackDialogueWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+        SetDialogue(m_comebackDialogue);
+        DisplayDialogue();
+        yield return null;
+    }
+    
+    IEnumerator DisplayRequestDoneDialogueWhenArrived()
+    {
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }
         SetDialogue(m_requestDoneText);
         DisplayDialogue();
+        if (m_acceptEffect.m_player == null)
+                m_acceptEffect.m_player = m_player;
+                
+            m_acceptEffect.affectPlayer();
         yield return null;
     }
 
@@ -87,6 +121,10 @@ public class RequestEvent : Event
         m_action.m_isAvailable = true;
         SetDialogue(m_acceptText);
         DisplayDialogue();
+        m_acceptButton.gameObject.SetActive(false);
+        m_declineButton.gameObject.SetActive(false);
+        m_status = EStatus.ON_REQUEST;
+        m_player.IsOnQuest = true;
     }
 
     private void Declined()
@@ -94,6 +132,10 @@ public class RequestEvent : Event
         SetDialogue(m_declineText);
         DisplayDialogue();
         CloseEvent();
+        if (m_declineEffect.m_player == null)
+                m_declineEffect.m_player = m_player;
+        m_declineEffect.affectPlayer();
+        m_comebackDialogue = m_gotDeclinedText;
         
     }
     private void CloseEvent()

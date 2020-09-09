@@ -7,7 +7,8 @@ public enum EStatus
 {
     NOT_AVAILABLE,
     AVAILABLE,
-    ACTIVE,
+    ON_REQUEST,
+    REQUEST_DONE,
     DONE
 }
 

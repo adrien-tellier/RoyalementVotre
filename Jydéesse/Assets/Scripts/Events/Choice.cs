@@ -21,13 +21,10 @@ public class Choice : ScriptableObject
     public Effect m_effect;
 
 
-    /*// How the event affect the player's stats
-    public float m_effectOnMoney = 0f;
-    public float m_effectOnSatifaction = 0f;
-    public float m_effectOnFood = 0f;
-    public float m_effectOnTime = 0f;
+    // How the event affect the player's stats
+    
 
-    */public void affectPlayer() 
+    public void affectPlayer() 
     {
         if (isActive)
         {

@@ -23,6 +23,7 @@ public class CharacterPool : MonoBehaviour
 
     public void SendPositionToPlayer(Vector3 position)
     {
-        m_player.Destination = position;
+        if (!m_player.getOccupiedStatus() || m_player.IsOnQuest)
+            m_player.Destination = position;
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
+  m_Name: GuillaumeChabanierDecline
+  m_EditorClassIdentifier: 
+  m_prompt: Decline
+  m_endPrompt: "But..but\u2026 I thought you were good\u2026"
+  m_comebackMessage: 
+  m_player: {fileID: 0}
+  m_choiceMade:
+    m_PersistentCalls:
+      m_Calls: []
+  m_effect: {fileID: 11400000, guid: 04127d573a9fdc3449c661ec78b44ec8, type: 2}

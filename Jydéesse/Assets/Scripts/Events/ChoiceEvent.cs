@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ChoiceEvent : Event
 {
     [SerializeField]
-    Choice[] choices = new Choice[3];
+    private Choice[] choices = new Choice[3];
 
     [SerializeField]
     public Button m_option1Button;
@@ -31,7 +31,7 @@ public class ChoiceEvent : Event
         // deactivate the choices
         foreach (Choice c in choices)
         {
-            c.setActive(false);
+            c.IsActive = false;
         }
 
         // Empty the text boxes
@@ -41,9 +41,6 @@ public class ChoiceEvent : Event
         m_option2Button.gameObject.SetActive(false);
         m_declineButton.GetComponentInChildren<Text>().text = "";
         m_declineButton.gameObject.SetActive(false);
-
-        SetDialogue(m_endDialogue);
-        DisplayDialogue();
 
         // Remove the buttons listeners
         m_option1Button.onClick.RemoveAllListeners();
@@ -59,22 +56,22 @@ public class ChoiceEvent : Event
     protected new void OnMouseDown() 
     {   
         // Do nothing if the player is already occupied
+        if (m_player.getOccupiedStatus())
+            return;
+
         if (m_status == EStatus.DONE)
-        {
             StartCoroutine("DisplayCombackDialogueWhenArrived");
-            return;
+
+        else if (m_status == EStatus.AVAILABLE)
+        {
+            m_player.setOccupiedStatus(true);
+            StartCoroutine("BeginDialogueWhenArrived");
         }
-
-        else if (m_player.getOccupiedStatus() || m_status != EStatus.AVAILABLE)
-            return;
-
-        m_player.setOccupiedStatus(true);
-        StartCoroutine("BeginDialogueWhenArrived");
     }
 
     IEnumerator BeginDialogueWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }
@@ -98,38 +95,35 @@ public class ChoiceEvent : Event
 
         // Active choices
         foreach (Choice c in choices)
-        {
-            c.setActive(true);
-        }
+            c.IsActive = true;
 
         yield return null;
     }
 
     IEnumerator DisplayCombackDialogueWhenArrived()
     {
-        while (m_player.IsMoving)
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
         {
             yield return new WaitForSeconds(.01f);
         }
-        SetDialogue(m_comebackDialogue);
-        DisplayDialogue();
+        DisplayDialogue(m_comebackDialogue);
         yield return null;
     }
 
     // Je sais c'est moche mais y pas le temps
     private void opt1Chosen()
     {
-        m_endDialogue = choices[0].m_endPrompt;
+        DisplayDialogue(choices[0].m_endPrompt);
         m_comebackDialogue = choices[0].m_comebackMessage;
     }
     private void opt2Chosen()
     {
-        m_endDialogue = choices[1].m_endPrompt;
+        DisplayDialogue(choices[1].m_endPrompt);
         m_comebackDialogue = choices[1].m_comebackMessage;
     }
     private void declineChosen()
     {
-        m_endDialogue = choices[2].m_endPrompt;
+        DisplayDialogue(choices[2].m_endPrompt);
         m_comebackDialogue = choices[2].m_comebackMessage;
     }
 

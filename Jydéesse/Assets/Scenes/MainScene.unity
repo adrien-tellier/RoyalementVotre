@@ -1940,6 +1940,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1016002508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016002503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f901efe4fdcd1974bb00951444d8474c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startDialogue: "Je n'ai pas assez de foin pour nourrir mes moutons cet hiver.
+    Seriez vous aussi aimable que de me donner 3 bottes de foin s'il vous pla\xEEt
+    votre Gr\xE2ce?"
+  m_comebackDialogue: 
+  m_dialogueBoxText: {fileID: 740181072}
+  m_player: {fileID: 2099273771}
+  choices:
+  - {fileID: 11400000, guid: 6acaad79fcaed064fbc2f58abd0570a8, type: 2}
+  - {fileID: 11400000, guid: 0e8bcf1742fc12748a465970f398dcd5, type: 2}
+  - {fileID: 11400000, guid: d11a81949aacd9c4281259cbbf19540f, type: 2}
+  m_option1Button: {fileID: 1831429768}
+  m_option2Button: {fileID: 870166226}
+  m_declineButton: {fileID: 779474750}
 --- !u!1 &1060188281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,16 +2212,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startDialogue: Va recup l'objet jaune stp
+  m_comebackDialogue: 
   m_dialogueBoxText: {fileID: 740181072}
   m_player: {fileID: 2099273771}
   m_acceptText: Merci je t'attends la
   m_declineText: fdp
+  m_thanksText: cimer
+  m_gotDeclinedText: cassetoi
   m_requestDoneText: Merci beaucoup
-  m_action: {fileID: 1745980689}
   m_acceptButton: {fileID: 1674631107}
   m_declineButton: {fileID: 703913584}
-  acceptEffect: {fileID: 11400000, guid: 723e81d8bc544fa408d1a89bc5576bb5, type: 2}
-  declineEffect: {fileID: 11400000, guid: 04127d573a9fdc3449c661ec78b44ec8, type: 2}
+  m_action: {fileID: 1745980689}
+  m_acceptEffect: {fileID: 11400000, guid: ad54ec673b2f83b48a7cbcf8962ddf63, type: 2}
+  m_declineEffect: {fileID: 11400000, guid: 04127d573a9fdc3449c661ec78b44ec8, type: 2}
 --- !u!1 &1317442209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,12 +2874,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e58362529ab614f8a85b65e2b121e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isAvailable: 0
   m_player: {fileID: 2099273771}
+  m_onClickDialogue: Tu recupere l'objet
+  m_shouldDisapear: 1
   m_requestDone:
     m_PersistentCalls:
       m_Calls: []
-  m_onClickDialogue: Tu recupere l'objet
 --- !u!212 &1745980690
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2910,8 +2938,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745980688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.51, y: -0.3, z: -112.84971}
-  m_LocalScale: {x: 9.340313, y: 7.719375, z: 1}
+  m_LocalPosition: {x: -4.51, y: -0.3, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -3349,5 +3377,5 @@ MonoBehaviour:
   e_occupiedStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_speed: 5
+  m_speed: 15
   m_stopDistance: 3

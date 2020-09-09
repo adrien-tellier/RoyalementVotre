@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: ThomasBergerDecline
+  m_Name: "B\xE9atriceForgeOpt1"
   m_EditorClassIdentifier: 
-  m_prompt: Decline
-  m_endPrompt: I thought you were our guide? Our guide is leading us straight into
-    the grave!
-  m_comebackMessage: I hate you
   m_player: {fileID: 0}
+  m_prompt: 10 po
+  m_endPrompt: "Merci beaucoup, vous \xEAtes trop bon !"
+  m_comebackMessage: "Merci beaucoup, vous \xEAtes trop bon !"
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: 04127d573a9fdc3449c661ec78b44ec8, type: 2}
+  m_effect: {fileID: 11400000, guid: 723e81d8bc544fa408d1a89bc5576bb5, type: 2}

@@ -10,11 +10,11 @@ public class ChoiceEvent : Event
     private Choice[] choices = new Choice[3];
 
     [SerializeField]
-    public Button m_option1Button;
+    public Button m_option1Button = null;
     [SerializeField]
-    public Button m_option2Button;
+    public Button m_option2Button = null;
     [SerializeField]
-    public Button m_declineButton;
+    public Button m_declineButton = null;
 
     private void Start() 
     {

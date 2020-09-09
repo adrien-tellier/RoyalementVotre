@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Choice", menuName = "ScriptableObjects/Choice", order = 1)]
+[CreateAssetMenu(fileName = "Choice", menuName = "ScriptableObjects/Choice", order = 2)]
 public class Choice : ScriptableObject
 {
     public Player m_player = null;
@@ -16,9 +16,9 @@ public class Choice : ScriptableObject
     public string m_comebackMessage = "";
     
     private bool m_isActive = false;
-    public UnityEvent m_choiceMade;
+    public UnityEvent m_choiceMade = null;
 
-    public Effect m_effect;
+    public Effect m_effect = null;
 
     public bool IsActive { get { return m_isActive; } set { m_isActive = value; }}
 

@@ -8,32 +8,32 @@ public class RequestEvent : Event
 {
     // Display thingies
     [SerializeField]
-    private string m_acceptText;
+    private string m_acceptText = "";
     [SerializeField]
-    private string m_declineText;
+    private string m_declineText = "";
     [SerializeField]
-    private string m_thanksText;
+    private string m_thanksText = "";
     [SerializeField]
-    private string m_gotDeclinedText;
+    private string m_gotDeclinedText = "";
     [SerializeField]
-    private string m_requestDoneText;
+    private string m_requestDoneText = "";
 
     [SerializeField]
-    private Button m_acceptButton;
+    private Button m_acceptButton = null;
 
     [SerializeField]
-    private Button m_declineButton;
+    private Button m_declineButton = null;
 
     // The trigger attached to the request (where the player should go)
     [SerializeField]
-    private Action m_action; 
+    private Action m_action = null; 
     
     // Effect of accepting/denying
     [SerializeField]
-    private Effect m_acceptEffect; 
+    private Effect m_acceptEffect = null; 
 
     [SerializeField]
-    private Effect m_declineEffect; 
+    private Effect m_declineEffect = null; 
 
 
     private void Start() 

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
   m_Name: ThomasBergerOpt1
   m_EditorClassIdentifier: 
-  m_prompt: Give 3 food
+  m_player: {fileID: 0}
+  m_prompt: 3 Ration
   m_endPrompt: Merci beaucoup, tout le monde sera au chaud quand l'hiver viendra
     !
   m_comebackMessage: "Encore merci pour la nourriture, vous \xEAtes si genereux"
-  m_player: {fileID: 0}
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []

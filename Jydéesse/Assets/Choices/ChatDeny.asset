@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: GuillaumeChabanierOpt2
+  m_Name: ChatDeny
   m_EditorClassIdentifier: 
-  m_prompt: Give 2 food
-  m_endPrompt: "Oh, well I guess I can sell that\u2026 "
-  m_comebackMessage: 
   m_player: {fileID: 0}
+  m_prompt: "D\xE9cliner"
+  m_endPrompt: "Miaouuuuu\u2026."
+  m_comebackMessage: "Miaouuuuu\u2026."
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: cb1ecfea616435049a1b644172a55c10, type: 2}
+  m_effect: {fileID: 11400000, guid: 205b91ddea5cc8948b4a1a27efadef43, type: 2}

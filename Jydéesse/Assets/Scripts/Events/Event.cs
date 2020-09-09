@@ -17,8 +17,7 @@ public class Event : MonoBehaviour
     // How the event is displayed
     [SerializeField]
     protected string m_startDialogue = ""; // what appears when the event is launched
-    
-    [SerializeField]
+
     protected string m_comebackDialogue = ""; // what appears when the player come back to the character
 
     [SerializeField]

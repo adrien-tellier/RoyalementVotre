@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: ThomasBergerOpt2
+  m_Name: HubertSentierOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 3 po
-  m_endPrompt: "Oh? Je croyais que la Cour avait un inventaire plus cons\xE9quent.
-    Heureusement que la Tr\xE9sorerie est l\xE0."
-  m_comebackMessage: Merci de votre aide
+  m_prompt: 2 po
+  m_endPrompt: "Merci Majest\xE9, je vais aller au boulanger pour acheter du pain
+    !"
+  m_comebackMessage: "Merci Majest\xE9"
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: 1c5328e956b670a4493bddb935cc6c6e, type: 2}
+  m_effect: {fileID: 11400000, guid: 8adb15e82f8105946a0dea5f9f0e5201, type: 2}

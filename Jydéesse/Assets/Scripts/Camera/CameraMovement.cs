@@ -20,6 +20,7 @@ public class CameraMovement : MonoBehaviour
     private void Awake()
     {
         transform.position = m_positions[m_startPosition];
+        m_currentPosition = m_startPosition;
     }
 
     // Start is called before the first frame update

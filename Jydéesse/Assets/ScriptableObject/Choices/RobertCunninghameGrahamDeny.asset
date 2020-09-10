@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RobertCunninghameGrahamDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Cela est fort regrettable Majest\xE9. Je suis d\xE9sol\xE9 que nous
     n\u2019ayons pas pu convenir un accord."
   m_comebackMessage: "Je suis d\xE9sol\xE9 que nous n\u2019ayons pas pu convenir

@@ -24,7 +24,7 @@ public class CharacterPool : MonoBehaviour
     public void SendPositionToPlayer(Vector3 position)
     {
         if (!m_player.getOccupiedStatus() || m_player.IsOnQuest)
-        {
+        { 
             if (position.y < m_player.m_minY)
                 position.y = m_player.m_minY;
 

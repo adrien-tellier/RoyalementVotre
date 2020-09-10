@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThomasBergerOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 3 Ration
+  m_prompt: 3
   m_endPrompt: Merci beaucoup, tout le monde sera au chaud quand l'hiver viendra
     !
   m_comebackMessage: "Encore merci pour la nourriture, vous \xEAtes si genereux"

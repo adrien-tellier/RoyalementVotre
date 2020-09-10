@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HubertSentierDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: Mais enfin, comment je peux manger sans pain ?!
   m_comebackMessage: Sans pain ce banquet est bien triste
   m_choiceMade:

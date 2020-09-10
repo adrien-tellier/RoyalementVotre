@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "M\xE9lusineDAbatiOpt1"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20 po
+  m_prompt: 20
   m_endPrompt: "Mille mercis Majest\xE9!"
   m_comebackMessage: "Mille mercis Majest\xE9!"
   m_choiceMade:

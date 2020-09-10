@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GontranAdornoOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20 po
+  m_prompt: 20
   m_endPrompt: "Merci pour cet arrangement, j'esp\xE8re vous prouver ma loyaut\xE9
     quand vous serez en difficult\xE9..."
   m_comebackMessage: Merci pour cet arrangement

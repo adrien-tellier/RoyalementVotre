@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThomasBergerOpt2
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 3 po
+  m_prompt: 3
   m_endPrompt: "Oh? Je croyais que la Cour avait un inventaire plus cons\xE9quent.
     Heureusement que la Tr\xE9sorerie est l\xE0."
   m_comebackMessage: Merci de votre aide

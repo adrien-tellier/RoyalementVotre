@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RichardAbbevilleOpt2
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20 Ration
+  m_prompt: 20
   m_endPrompt: "Vous avez raison, j'organiserai un banquet comme le v\xF4tre dans
     mon ch\xE2teau!"
   m_comebackMessage: J'espere vous voir lors de mon banquet

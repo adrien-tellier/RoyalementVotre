@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "BlancheDeJ\xE9aOpt1"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 5 po
+  m_prompt: 5
   m_endPrompt: "Vous avez raison Majest\xE9, je vais acheter les tartes moi m\xEAme!
     Je suis une grande fille maintenant !"
   m_comebackMessage: Merci pour votre aide

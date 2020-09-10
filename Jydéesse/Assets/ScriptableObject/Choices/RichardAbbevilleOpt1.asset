@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RichardAbbevilleOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20 Po
+  m_prompt: 20
   m_endPrompt: "Merci beaucoup, votre g\xE9n\xE9rosit\xE9 redonnera \xE0 mon personnel
     le moral."
   m_comebackMessage: Merci beaucoup

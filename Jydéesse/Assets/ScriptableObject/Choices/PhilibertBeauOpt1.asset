@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhilibertBeauOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 2 po
+  m_prompt: 2
   m_endPrompt: "Merci beaucoup Majest\xE9 , j\u2019irais m\u2019acheter ma charrue
     demain !"
   m_comebackMessage: "Merci beaucoup Majest\xE9"

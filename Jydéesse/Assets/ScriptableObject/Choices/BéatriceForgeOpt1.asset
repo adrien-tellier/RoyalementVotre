@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "B\xE9atriceForgeOpt1"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 10 po
+  m_prompt: 10
   m_endPrompt: "Merci beaucoup, vous \xEAtes trop bon !"
   m_comebackMessage: "Merci beaucoup, vous \xEAtes trop bon !"
   m_choiceMade:

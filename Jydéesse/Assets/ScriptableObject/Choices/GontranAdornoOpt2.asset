@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GontranAdornoOpt2
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 10 Ration
+  m_prompt: 10
   m_endPrompt: "Navr\xE9, mais je suis un petit peu confus. Cette nourriture ira
     aux ouvriers et au personnel de mon ch\xE2teau j'imagine\u2026"
   m_comebackMessage: Merci pour votre aide

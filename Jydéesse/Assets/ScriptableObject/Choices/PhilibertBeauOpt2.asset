@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhilibertBeauOpt2
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 3 Ration
+  m_prompt: 3
   m_endPrompt: "Merci Majest\xE9, je pourrais donner ce grain au boulanger, et j'essaierai
     de r\xE9parer ma charrue demain."
   m_comebackMessage: "Merci Majest\xE9"

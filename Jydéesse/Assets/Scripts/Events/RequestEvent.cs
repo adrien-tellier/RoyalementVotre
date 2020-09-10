@@ -47,7 +47,7 @@ public class RequestEvent : Event
         m_comebackDialogue = m_thanksText;
         m_status = EStatus.REQUEST_DONE;
 
-        DisplayDialogue("Vous avez recuperez : " + m_action.m_actionTargetName);
+        DisplayDialogue("J'ai trouvé " + m_action.m_actionTargetName);
     }
 
     // Called when the player clicks on the character
@@ -93,6 +93,7 @@ public class RequestEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        ChangeSpeaker("Le Roi");
         DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
         yield return null;
     }
@@ -127,6 +128,7 @@ public class RequestEvent : Event
             yield return new WaitForSeconds(.01f);
         }
 
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_comebackDialogue);
         yield return null;
     }
@@ -140,6 +142,7 @@ public class RequestEvent : Event
             yield return new WaitForSeconds(.01f);
         }
 
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_requestDoneText);
 
         // Reward the player
@@ -159,6 +162,7 @@ public class RequestEvent : Event
         m_player.m_actionTargetName = m_action.m_actionTargetName;
         m_status = EStatus.ON_REQUEST;
 
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_acceptText);
 
         // Hide the buttons
@@ -176,6 +180,7 @@ public class RequestEvent : Event
                 m_declineEffect.m_player = m_player;
         m_declineEffect.affectPlayer();
         
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_declineText);
         CloseEvent();
         

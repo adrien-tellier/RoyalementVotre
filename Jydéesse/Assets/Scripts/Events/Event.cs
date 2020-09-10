@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum EStatus
 {
@@ -21,8 +22,13 @@ public class Event : MonoBehaviour
     protected string m_comebackDialogue = ""; // what appears when the player come back to the character
 
     [SerializeField]
-    private Text m_dialogueBoxText = null;
+    private TextMeshProUGUI m_mainTextBox = null;
+
+    [SerializeField]
+    private TextMeshProUGUI m_speakerTextBox = null;
     
+    [SerializeField]
+    protected string m_eventHolderSpeakerName = "";
 
     protected EStatus m_status = EStatus.AVAILABLE;
 
@@ -32,15 +38,19 @@ public class Event : MonoBehaviour
     // When the player arrives next to the character, displays the startDialogue
     protected void OnMouseDown() 
     {
-        m_dialogueBoxText.text = m_startDialogue;    
+        ChangeSpeaker(m_eventHolderSpeakerName);
+        m_mainTextBox.text = m_startDialogue;    
     }
 
     // Write the given text in the dialogue box
     protected void DisplayDialogue(string text)
     {
-        m_dialogueBoxText.text = text;
+        m_mainTextBox.text = text;
     }
 
-    
+    protected void ChangeSpeaker(string name)
+    {
+        m_speakerTextBox.text = name + " :";
+    }
 
 }

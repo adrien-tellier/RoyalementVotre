@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RobertCunninghameGrahamOpt2
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 5po
+  m_prompt: 5
   m_endPrompt: "Je ne sais quoi faire de ce cadeau\u2026 Merci?"
   m_comebackMessage: Merci, j'imagine...
   m_choiceMade:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HubertSentierOpt2
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 3 Ration
+  m_prompt: 3
   m_endPrompt: "Merci beaucoup Majest\xE9, je peux en garder un pour moi ?"
   m_comebackMessage: "Merci beaucoup Majest\xE9"
   m_choiceMade:

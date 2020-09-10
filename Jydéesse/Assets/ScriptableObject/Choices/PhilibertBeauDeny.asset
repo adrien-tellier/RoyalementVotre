@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhilibertBeauDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Je comprends que les temps sont durs, mais le peuple n\u2019auras
     plus de pain Majest\xE9."
   m_comebackMessage: A cause de vous le peuple n'aura plus de pain

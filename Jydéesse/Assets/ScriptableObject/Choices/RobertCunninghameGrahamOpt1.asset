@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RobertCunninghameGrahamOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 10 po
+  m_prompt: 10
   m_endPrompt: "Vous \xEAtes trop good Majest\xE9! Je m\u2019en vais aller les chercher 
     !"
   m_comebackMessage: "Vous \xEAtes trop good Majest\xE9!"

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ChoiceEvent : Event
 {
     [SerializeField]
@@ -111,6 +112,7 @@ public class ChoiceEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        ChangeSpeaker("Le Roi");
         DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
         yield return null;
     }
@@ -121,6 +123,7 @@ public class ChoiceEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_comebackDialogue);
         yield return null;
     }
@@ -128,16 +131,19 @@ public class ChoiceEvent : Event
     // Je sais c'est moche mais y pas le temps
     private void opt1Chosen()
     {
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[0].m_endPrompt);
         m_comebackDialogue = choices[0].m_comebackMessage;
     }
     private void opt2Chosen()
     {
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[1].m_endPrompt);
         m_comebackDialogue = choices[1].m_comebackMessage;
     }
     private void declineChosen()
     {
+        ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[2].m_endPrompt);
         m_comebackDialogue = choices[2].m_comebackMessage;
     }

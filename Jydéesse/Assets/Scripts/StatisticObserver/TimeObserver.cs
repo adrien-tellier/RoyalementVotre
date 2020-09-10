@@ -21,6 +21,8 @@ public class TimeObserver : MonoBehaviour
     // Update is called once per frame
     void UpdateDisplay()
     {
-        m_infoText.text = "Time : \n"+m_player.getTime();
+        float hours = Mathf.Floor(m_player.getTime()/60f);
+        float minutes = m_player.getTime() - 60 * hours;
+        m_infoText.text = hours.ToString("00") + ":" + minutes.ToString("00");
     }
 }

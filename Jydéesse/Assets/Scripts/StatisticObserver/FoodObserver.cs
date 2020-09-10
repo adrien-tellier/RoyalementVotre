@@ -21,6 +21,6 @@ public class FoodObserver : MonoBehaviour
     // Update is called once per frame
     void UpdateDisplay()
     {
-        m_infoText.text = "Food : \n"+m_player.getFood();
+        m_infoText.text = m_player.getFood().ToString();
     }
 }

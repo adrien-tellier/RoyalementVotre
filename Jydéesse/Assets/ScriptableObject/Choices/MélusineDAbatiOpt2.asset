@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "M\xE9lusineDAbatiOpt2"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 2 Ration
+  m_prompt: 2
   m_endPrompt: "Vous avez raison, l\xE0 n\u2019est pas le moment profitons de cette
     belle soir\xE9e!"
   m_comebackMessage: "Profitons de cette belle soir\xE9e! "

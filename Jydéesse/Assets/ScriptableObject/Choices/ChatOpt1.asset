@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChatOpt1
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 1 po
+  m_prompt: 1
   m_endPrompt: Miaou ?
   m_comebackMessage: Miaou..
   m_choiceMade:

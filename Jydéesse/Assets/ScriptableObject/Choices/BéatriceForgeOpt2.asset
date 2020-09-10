@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "B\xE9atriceForgeOpt2"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 4 ration
+  m_prompt: 4
   m_endPrompt: "Merci beaucoup, je pourrais me concentrer sur ma forger avec \xE7a"
   m_comebackMessage: Merci beaucoup, je peut me concentrer sur ma forger maintenant
   m_choiceMade:

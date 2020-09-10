@@ -47,7 +47,7 @@ public class RequestEvent : Event
         m_comebackDialogue = m_thanksText;
         m_status = EStatus.REQUEST_DONE;
 
-        DisplayDialogue(m_action.m_onClickDialogue);
+        DisplayDialogue("Vous avez recuperez : " + m_action.m_actionTargetName);
     }
 
     // Called when the player clicks on the character
@@ -67,7 +67,11 @@ public class RequestEvent : Event
 
         // Do nothing if the player is already occupied
         if (m_player.getOccupiedStatus())
+        {
+            if (m_player.IsOnQuest)
+                StartCoroutine("OnQuestDialogueWhenArrived");
             return;
+        }
 
         // The player came back to the character
         else if (m_status == EStatus.DONE)
@@ -81,6 +85,16 @@ public class RequestEvent : Event
             m_player.setOccupiedStatus(true);
             StartCoroutine("BeginDialogueWhenArrived");
         }
+    }
+
+    IEnumerator OnQuestDialogueWhenArrived()
+    {
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+        DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
+        yield return null;
     }
 
     // Start the event once the player is next to the character
@@ -142,6 +156,7 @@ public class RequestEvent : Event
     {
         m_action.IsAvailable = true;
         m_player.IsOnQuest = true;
+        m_player.m_actionTargetName = m_action.m_actionTargetName;
         m_status = EStatus.ON_REQUEST;
 
         DisplayDialogue(m_acceptText);

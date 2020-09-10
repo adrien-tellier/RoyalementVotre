@@ -22,9 +22,11 @@ public class Player : MonoBehaviour
     public UnityEvent e_timeChanged;
     public UnityEvent e_occupiedStatusChanged;
 
-    // Sneaky bad coding variables
+    // Sneaky ugly variables
     private bool m_isOccupied;
     private bool m_isMoving = true;
+
+    public string m_actionTargetName;
 
     private bool m_isOnQuest = false;
 
@@ -33,15 +35,23 @@ public class Player : MonoBehaviour
     private float m_speed = 1f;
 
     [SerializeField]
-    private float m_stopDistance = 5f;
+    private float m_stopDistanceX = 1.5f;
+    [SerializeField]
+    private float m_stopDistanceY = 0.5f;
 
-    private float m_destination;
+    [SerializeField]
+    public float m_minY;
+
+    [SerializeField]
+    public float m_maxY;
+
+    private Vector3 m_destination;
 
     //Animations
     private Animator m_animator;
     private SpriteRenderer m_spriteRenderer;
 
-    public float Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
+    public Vector3 Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
     public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
     public bool IsOnQuest { get { return m_isOnQuest; } set { m_isOnQuest = value; } }
 
@@ -89,16 +99,26 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        m_destination = transform.position.x;
+        m_destination = transform.position;
         m_animator = gameObject.GetComponentInChildren<Animator>();
         m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
-        if (Mathf.Abs(m_destination - transform.position.x) >= m_stopDistance)
+
+        //if (Vector3.Distance(m_destination, transform.position) >= m_stopDistanceX)
+        if (Mathf.Abs(m_destination.y - transform.position.y) >= m_stopDistanceY || Mathf.Abs(m_destination.x - transform.position.x) >= m_stopDistanceX)
         {
-            Vector3 direction = new Vector3((m_destination - transform.position.x),0f,0f).normalized;
+            Vector3 direction = (m_destination - transform.position);
+
+            if (Mathf.Abs(m_destination.y - transform.position.y) <= m_stopDistanceY)
+                direction.y = 0f;
+                
+            if (Mathf.Abs(m_destination.x - transform.position.x) <= m_stopDistanceX)
+                direction.x = 0f;
+
+            direction.Normalize();
             transform.position += direction * m_speed * Time.fixedDeltaTime;
 
             if (direction.x < 0)

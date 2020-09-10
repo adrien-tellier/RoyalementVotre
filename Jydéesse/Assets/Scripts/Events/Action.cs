@@ -9,7 +9,7 @@ public class Action : MonoBehaviour
     private Player m_player = null;
 
     [SerializeField]
-    public string m_onClickDialogue = "";
+    public string m_actionTargetName = "";
 
     private bool m_isAvailable = false;
 
@@ -25,7 +25,15 @@ public class Action : MonoBehaviour
     {
         if (m_isAvailable)
         {
-            m_player.Destination = transform.position.x;
+            Vector3 position = transform.position;
+
+            if (position.y < m_player.m_minY)
+                position.y = m_player.m_minY;
+
+            if (position.y > m_player.m_maxY)
+                position.y = m_player.m_maxY;
+
+            m_player.Destination = position;
             StartCoroutine("CompleteTaskWhenArrived");
         }
     }

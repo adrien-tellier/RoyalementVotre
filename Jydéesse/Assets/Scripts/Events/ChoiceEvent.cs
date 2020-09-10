@@ -57,7 +57,12 @@ public class ChoiceEvent : Event
     {   
         // Do nothing if the player is already occupied
         if (m_player.getOccupiedStatus())
+        {
+            if (m_player.IsOnQuest)
+                StartCoroutine("OnQuestDialogueWhenArrived");
+
             return;
+        }
 
         if (m_status == EStatus.DONE)
             StartCoroutine("DisplayCombackDialogueWhenArrived");
@@ -97,6 +102,16 @@ public class ChoiceEvent : Event
         foreach (Choice c in choices)
             c.IsActive = true;
 
+        yield return null;
+    }
+
+    IEnumerator OnQuestDialogueWhenArrived()
+    {
+        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
+        {
+            yield return new WaitForSeconds(.01f);
+        }
+        DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
         yield return null;
     }
 

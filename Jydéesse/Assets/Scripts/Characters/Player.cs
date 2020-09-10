@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
 
     private Vector3 m_destination;
 
+    //Animations
+    private Animator m_animator;
+    private SpriteRenderer m_spriteRenderer;
+
     public Vector3 Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
     public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
     public bool IsOnQuest { get { return m_isOnQuest; } set { m_isOnQuest = value; } }
@@ -51,20 +55,6 @@ public class Player : MonoBehaviour
     {
         m_isOccupied = b;
         e_occupiedStatusChanged.Invoke();
-    }
-
-    private void Awake()
-    {
-        m_destination = transform.position;
-    }
-
-    private void FixedUpdate()
-    {
-        if (Vector3.Distance(transform.position, m_destination) >= m_stopDistance)
-            transform.position += (m_destination - transform.position).normalized * m_speed * Time.fixedDeltaTime;
-
-        else if (m_isMoving)
-            m_isMoving = false;
     }
 
     // the 4 function that are used to change stats, invoke event for observer to adapt (change display)
@@ -95,5 +85,31 @@ public class Player : MonoBehaviour
         if (m_time < 0f)
             m_time = 0f;
         e_timeChanged.Invoke();
+    }
+
+    private void Awake()
+    {
+        m_destination = transform.position;
+        m_animator = gameObject.GetComponentInChildren<Animator>();
+        m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (Vector3.Distance(transform.position, m_destination) >= m_stopDistance)
+        {
+            Vector3 direction = (m_destination - transform.position).normalized;
+            transform.position += direction * m_speed * Time.fixedDeltaTime;
+
+            if (direction.x < 0)
+                m_spriteRenderer.flipX = true;
+            else
+                m_spriteRenderer.flipX = false;
+        }
+        else if (m_isMoving)
+            m_isMoving = false;
+
+        m_animator.SetBool("IsMoving", m_isMoving);
+        m_animator.SetBool("IsSpeaking", m_isOccupied && !m_isMoving);
     }
 }

@@ -41,8 +41,14 @@ TagManager:
   - name: Background
     uniqueID: 4146478575
     locked: 0
-  - name: Character
+  - name: CharacterBackground
+    uniqueID: 3794145415
+    locked: 0
+  - name: Player
     uniqueID: 847261779
+    locked: 0
+  - name: CharacterForground
+    uniqueID: 2482713543
     locked: 0
   - name: Forground
     uniqueID: 2342879961

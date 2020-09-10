@@ -15803,7 +15803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_money: 50
-  m_satisfaction: 100
+  m_satisfaction: 0
   m_requiredSatisfaction: 5
   m_food: 20
   m_time: 5

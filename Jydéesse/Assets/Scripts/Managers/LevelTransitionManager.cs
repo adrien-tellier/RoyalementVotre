@@ -26,14 +26,14 @@ public class LevelTransitionManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad1) && !m_isTransitioning)
-            StartCoroutine(FadeOut(1));
+            StartCoroutine(FadeOut("MainScene"));
         if (Input.GetKeyDown(KeyCode.Keypad0) && !m_isTransitioning)
-            StartCoroutine(FadeOut(0));
+            StartCoroutine(FadeOut("MainMenu"));
     }
 
-    public void ChangeLevel(int sceneID)
+    public void ChangeLevel(string scene)
     {
-        StartCoroutine(FadeOut(sceneID));
+        StartCoroutine(FadeOut(scene));
     }
 
     public void QuitGame()
@@ -56,7 +56,7 @@ public class LevelTransitionManager : MonoBehaviour
         m_isTransitioning = false;
     }
 
-    IEnumerator FadeOut(int sceneID)
+    IEnumerator FadeOut(string scene)
     {
         m_isTransitioning = true;
         m_fadeImage.enabled = true;
@@ -67,7 +67,7 @@ public class LevelTransitionManager : MonoBehaviour
             duration += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(scene);
         m_fadeImage.enabled = false;
         m_isTransitioning = false;
     }

@@ -523,13 +523,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 649623921}
         m_MethodName: ChangeLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OptionsMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &462622390
@@ -1034,13 +1034,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 649623921}
         m_MethodName: ChangeLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PlayerSelection
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1401005883
@@ -1242,13 +1242,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 649623921}
         m_MethodName: ChangeLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CreditsMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1510859934

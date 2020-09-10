@@ -15803,9 +15803,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_money: 50
-  m_satifaction: 20
+  m_satisfaction: 100
+  m_requiredSatisfaction: 5
   m_food: 20
-  m_time: 100
+  m_time: 5
   e_foodChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -15817,7 +15818,18 @@ MonoBehaviour:
       m_Calls: []
   e_timeChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2099273771}
+        m_MethodName: CheckLost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   e_occupiedStatusChanged:
     m_PersistentCalls:
       m_Calls: []

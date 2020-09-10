@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     // Statistics
     [SerializeField]
-    float m_money;
+    float m_money = 0;
     [SerializeField]
-    float m_satifaction;
+    float m_satisfaction = 0;
     [SerializeField]
-    float m_food;
+    float m_requiredSatisfaction = 0;
     [SerializeField]
-    float m_time;
+    float m_food = 0;
+    [SerializeField]
+    float m_time = 0;
 
     // Statistic events
     public UnityEvent e_foodChanged;
@@ -58,7 +61,7 @@ public class Player : MonoBehaviour
     // Statistic getter
     public float getFood() {return m_food;}
     public float getMoney() {return m_money;}
-    public float getSatisfaction() {return m_satifaction;}
+    public float getSatisfaction() {return m_satisfaction;}
     public float getTime() {return m_time;}
     public bool getOccupiedStatus() {return m_isOccupied;}
     public void setOccupiedStatus(bool b)
@@ -77,9 +80,9 @@ public class Player : MonoBehaviour
     }
     public void addSatifaction(float satisfactionAdded)
     {
-        m_satifaction += satisfactionAdded;
-        if (m_satifaction < 0f)
-            m_satifaction = 0f;
+        m_satisfaction += satisfactionAdded;
+        if (m_satisfaction < 0f)
+            m_satisfaction = 0f;
         e_satisfactionChanged.Invoke();
     }
     public void addFood(float foodAdded)
@@ -131,5 +134,19 @@ public class Player : MonoBehaviour
 
         m_animator.SetBool("IsMoving", m_isMoving);
         m_animator.SetBool("IsSpeaking", m_isOccupied && !m_isMoving);
+    }
+
+    public void CheckLost()
+    {
+        if (m_money == 0 || m_food == 0 || m_satisfaction == 0)
+            SceneManager.LoadScene("LooseMenu");
+
+        if (m_time <= 0)
+        {
+            if (m_satisfaction >= m_requiredSatisfaction)
+                SceneManager.LoadScene("WinMenu");
+            else
+                SceneManager.LoadScene("LooseMenu");
+        }
     }
 }

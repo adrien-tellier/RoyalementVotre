@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveLeft()
     {
-        if (m_currentPosition > 0 && !m_isTransitioning && !m_player.getOccupiedStatus() && !m_player.IsMoving)
+        if (m_currentPosition > 0 && !m_isTransitioning && (!m_player.getOccupiedStatus() && !m_player.IsMoving) || m_player.IsOnQuest)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition--;
@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveRight()
     {
-        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning && !m_player.getOccupiedStatus() && !m_player.IsMoving)
+        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning && (!m_player.getOccupiedStatus() && !m_player.IsMoving) || m_player.IsOnQuest)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition++;

@@ -34,7 +34,7 @@ public class MusicManager : MonoBehaviour
     }
     private void PlaySceneMusic()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().name == "MainScene")
         {
             m_gameMusic.Play();
             m_menuMusic.Stop();

@@ -25,7 +25,7 @@ public class Action : MonoBehaviour
     {
         if (m_isAvailable)
         {
-            m_player.Destination = transform.position;
+            m_player.Destination = transform.position.x;
             StartCoroutine("CompleteTaskWhenArrived");
         }
     }

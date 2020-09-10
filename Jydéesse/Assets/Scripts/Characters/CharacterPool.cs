@@ -24,6 +24,6 @@ public class CharacterPool : MonoBehaviour
     public void SendPositionToPlayer(Vector3 position)
     {
         if (!m_player.getOccupiedStatus() || m_player.IsOnQuest)
-            m_player.Destination = position;
+            m_player.Destination = position.x - 0.4f; // <- lol c mauche
     }
 }

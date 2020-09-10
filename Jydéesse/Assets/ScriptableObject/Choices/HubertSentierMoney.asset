@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: ChatOpt2
+  m_Name: HubertSentierMoney
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 1
-  m_endPrompt: "Miaou miaou ! Ronronronron\u2026"
-  m_comebackMessage: "Ronronronron\u2026"
+  m_prompt: 3
+  m_endPrompt: "Merci beaucoup Majest\xE9, je peux en garder un pour moi ?"
+  m_comebackMessage: "Merci beaucoup Majest\xE9"
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: 2d9e6273d4f012b4c8e423447f4a817c, type: 2}
+  m_effect: {fileID: 11400000, guid: c9dcacbbf9ba2d8419e06dd67a37a89d, type: 2}

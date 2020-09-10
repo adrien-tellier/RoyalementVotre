@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: PhilibertBeauOpt2
+  m_Name: "B\xE9atriceForgeMoney"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 3
-  m_endPrompt: "Merci Majest\xE9, je pourrais donner ce grain au boulanger, et j'essaierai
-    de r\xE9parer ma charrue demain."
-  m_comebackMessage: "Merci Majest\xE9"
+  m_prompt: 4
+  m_endPrompt: "Merci beaucoup, je pourrais me concentrer sur ma forger avec \xE7a"
+  m_comebackMessage: Merci beaucoup, je peut me concentrer sur ma forger maintenant
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: fba8f7018fcd28541b57720b62d38f1c, type: 2}
+  m_effect: {fileID: 11400000, guid: cb1ecfea616435049a1b644172a55c10, type: 2}

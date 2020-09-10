@@ -26,6 +26,9 @@ public class Event : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI m_speakerTextBox = null;
+
+    [SerializeField]
+    private TextMeshProUGUI m_speakerTextBox2 = null; // les deux point 
     
     [SerializeField]
     protected string m_eventHolderSpeakerName = "";
@@ -34,6 +37,9 @@ public class Event : MonoBehaviour
 
     [SerializeField]
     protected Player m_player = null;
+
+    [SerializeField]
+    protected bool m_canComeAgain;
 
     // When the player arrives next to the character, displays the startDialogue
     protected void OnMouseDown() 
@@ -50,7 +56,8 @@ public class Event : MonoBehaviour
 
     protected void ChangeSpeaker(string name)
     {
-        m_speakerTextBox.text = name + " :";
+        m_speakerTextBox.text = name;
+        m_speakerTextBox2.gameObject.SetActive(true);
     }
 
 }

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: "B\xE9atriceForgeOpt2"
+  m_Name: GontranAdornoFood
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 4
-  m_endPrompt: "Merci beaucoup, je pourrais me concentrer sur ma forger avec \xE7a"
-  m_comebackMessage: Merci beaucoup, je peut me concentrer sur ma forger maintenant
+  m_prompt: 20
+  m_endPrompt: "Merci pour cet arrangement, j'esp\xE8re vous prouver ma loyaut\xE9
+    quand vous serez en difficult\xE9..."
+  m_comebackMessage: Merci pour cet arrangement
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: cb1ecfea616435049a1b644172a55c10, type: 2}
+  m_effect: {fileID: 11400000, guid: 26c7602062ff7804fa651cc528ea8643, type: 2}

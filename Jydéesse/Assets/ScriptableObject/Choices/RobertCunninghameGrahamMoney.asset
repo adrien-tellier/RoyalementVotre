@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: HubertSentierOpt1
+  m_Name: RobertCunninghameGrahamMoney
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 2
-  m_endPrompt: "Merci Majest\xE9, je vais aller au boulanger pour acheter du pain
+  m_prompt: 10
+  m_endPrompt: "Vous \xEAtes trop good Majest\xE9! Je m\u2019en vais aller les chercher 
     !"
-  m_comebackMessage: "Merci Majest\xE9"
+  m_comebackMessage: "Vous \xEAtes trop good Majest\xE9!"
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: 8adb15e82f8105946a0dea5f9f0e5201, type: 2}
+  m_effect: {fileID: 11400000, guid: 9f4cbbb5582af6843b5311498e8603d7, type: 2}

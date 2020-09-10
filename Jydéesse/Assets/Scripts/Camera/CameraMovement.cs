@@ -13,6 +13,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private uint m_startPosition = 1;
 
+    [SerializeField]
+    private Player m_player;
+
     private uint m_currentPosition = 1;
     private uint m_previousPosition = 1;
     private Coroutine m_transition = null;
@@ -29,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveLeft()
     {
-        if (m_currentPosition > 0 && !m_isTransitioning)
+        if (m_currentPosition > 0 && !m_isTransitioning && !m_player.getOccupiedStatus() && !m_player.IsMoving)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition--;
@@ -42,7 +45,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveRight()
     {
-        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning)
+        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning && !m_player.getOccupiedStatus() && !m_player.IsMoving)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition++;
@@ -66,14 +69,4 @@ public class CameraMovement : MonoBehaviour
         transform.position = m_positions[m_currentPosition];
         m_isTransitioning = false;
     }
-
-    /*IEnumerator WaitEndTransition(bool isRight)
-    {
-        while (m_isTransitioning)
-            yield return new WaitForFixedUpdate();
-        if (isRight)
-            MoveRight();
-        else
-            MoveLeft();
-    }*/
 }

@@ -148,13 +148,13 @@ public class Player : MonoBehaviour
 
     void MoveLeft()
     {
-        if (m_currentPos > 0)
+        if (m_currentPos > 0 && !m_isOccupied)
             Destination = m_positions[--m_currentPos];
     }
 
     void MoveRight()
     {
-        if (m_currentPos < 2)
+        if (m_currentPos < 2 && !m_isOccupied)
             Destination = m_positions[++m_currentPos];
     }
 }

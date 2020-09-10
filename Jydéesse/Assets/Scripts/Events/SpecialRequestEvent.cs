@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class RequestEvent : Event
+public class SpecialRequestEvent : Event
 {
     // Display thingies
     [SerializeField]
@@ -12,21 +12,15 @@ public class RequestEvent : Event
     [SerializeField]
     private string m_declineText = "";
     [SerializeField]
-    private string m_thanksText = "";
+    private string m_acceptComebackText = "";
     [SerializeField]
-    private string m_gotDeclinedText = "";
-    [SerializeField]
-    private string m_requestDoneText = "";
+    private string m_declineComebackText = "";
 
     [SerializeField]
     private Button m_acceptButton = null;
 
     [SerializeField]
     private Button m_declineButton = null;
-
-    // The trigger attached to the request (where the player should go)
-    [SerializeField]
-    private Action m_action = null; 
     
     // Effect of accepting/denying
     [SerializeField]
@@ -36,35 +30,9 @@ public class RequestEvent : Event
     private Effect m_declineEffect = null; 
 
 
-    private void Start() 
-    {
-        m_action.m_requestDone.AddListener(RequestCompleted);
-    }
-
-    // Called when the player went to the action position
-    private void RequestCompleted()
-    {
-        m_comebackDialogue = m_thanksText;
-        m_status = EStatus.REQUEST_DONE;
-
-        DisplayDialogue("J'ai trouvé " + m_action.m_actionTargetName);
-    }
-
     // Called when the player clicks on the character
     protected new void OnMouseDown() 
     {   
-        // The player got back from request
-        if (m_status == EStatus.REQUEST_DONE)
-        {
-            StartCoroutine("DisplayRequestDoneDialogueWhenArrived");
-
-            m_status = EStatus.DONE;
-            m_player.IsOnQuest = false;
-
-            CloseEvent();
-            return;
-        }
-
         // Do nothing if the player is already occupied
         if (m_player.getOccupiedStatus())
         {
@@ -133,34 +101,17 @@ public class RequestEvent : Event
         yield return null;
     }
 
-    // The player finnished the request and came back
-    IEnumerator DisplayRequestDoneDialogueWhenArrived()
-    {
-        // Wait for the player to be next to the character
-        while (m_player.IsMoving || Vector3.Distance(m_player.transform.position, transform.position) >= 5)
-        {
-            yield return new WaitForSeconds(.01f);
-        }
 
-        ChangeSpeaker(m_eventHolderSpeakerName);
-        DisplayDialogue(m_requestDoneText);
-
-        // Reward the player
-        if (m_acceptEffect.m_player == null)
-                m_acceptEffect.m_player = m_player;
-                
-        m_acceptEffect.affectPlayer();
-
-        yield return null;
-    }
 
     // Called if the player accept the request
     private void Accepted()
     {
-        m_action.IsAvailable = true;
-        m_player.IsOnQuest = true;
-        m_player.m_actionTargetName = m_action.m_actionTargetName;
-        m_status = EStatus.ON_REQUEST;
+        m_comebackDialogue = m_acceptComebackText;
+
+
+        if (m_acceptEffect.m_player == null)
+                m_acceptEffect.m_player = m_player;
+        m_acceptEffect.affectPlayer();
 
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_acceptText);
@@ -168,12 +119,16 @@ public class RequestEvent : Event
         // Hide the buttons
         m_acceptButton.gameObject.SetActive(false);
         m_declineButton.gameObject.SetActive(false);
+
+        CloseEvent();
+
+        m_status = EStatus.DONE;
     }
 
     // Called if the player declines the request
     private void Declined()
     {
-        m_comebackDialogue = m_gotDeclinedText;
+        m_comebackDialogue = m_declineComebackText;
 
         // Punish the player
         if (m_declineEffect.m_player == null)
@@ -182,7 +137,9 @@ public class RequestEvent : Event
         
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_declineText);
+
         CloseEvent();
+
         if (!m_canComeAgain)
             m_status = EStatus.DONE;
         

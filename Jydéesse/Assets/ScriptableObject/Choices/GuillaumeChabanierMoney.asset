@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
-  m_Name: RichardAbbevilleOpt2
+  m_Name: GuillaumeChabanierMoney
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20
-  m_endPrompt: "Vous avez raison, j'organiserai un banquet comme le v\xF4tre dans
-    mon ch\xE2teau!"
-  m_comebackMessage: J'espere vous voir lors de mon banquet
+  m_prompt: 10
+  m_endPrompt: Merci beaucoup, je vous donne 5 biscuits !
+  m_comebackMessage: Merci beaucoup
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []
-  m_effect: {fileID: 11400000, guid: 4f488427f75545043bca968bba7a8743, type: 2}
+  m_effect: {fileID: 11400000, guid: 69d9e5b78080d584e97fafc4343612f2, type: 2}

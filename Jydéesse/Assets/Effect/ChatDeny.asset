@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb88f5e0c90acf4f91f75a71cffa602, type: 3}
+  m_Name: ChatDeny
+  m_EditorClassIdentifier: 
+  m_effectOnMoney: 0
+  m_effectOnSatifaction: -1
+  m_effectOnFood: 0
+  m_effectOnTime: -5
+  m_player: {fileID: 0}

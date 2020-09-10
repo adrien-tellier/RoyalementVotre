@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Player m_player = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private Sprite m_spriteLookLeft = null;
+
+    [SerializeField]
+    private Sprite m_spriteLookRght = null;
 
     private void OnMouseDown()
     {
         gameObject.GetComponentInParent<CharacterPool>().SendPositionToPlayer(transform.position);
+    }
+
+    private void FixedUpdate() 
+    {
+        if (m_player.IsMoving)
+            AdaptSide();
+    }
+
+    private void AdaptSide()
+    {
+        if (m_player.transform.position.x > transform.position.x)
+            gameObject.GetComponent<SpriteRenderer>().sprite = m_spriteLookRght;
+
+        if (m_player.transform.position.x < transform.position.x)
+            gameObject.GetComponent<SpriteRenderer>().sprite = m_spriteLookLeft;
     }
 }

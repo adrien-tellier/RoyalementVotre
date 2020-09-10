@@ -15,25 +15,25 @@ public class LevelTransitionManager : MonoBehaviour
     private Image m_fadeImage;
     private bool m_isTransitioning = false;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_fadeImage = GetComponentInChildren<Image>();
-        m_fadeImage.enabled = false;
+        m_fadeImage.enabled = true;
+        StartCoroutine(FadeIn());
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad1) && !m_isTransitioning)
-            StartCoroutine(TransisitionLevelFadeToBlack(1));
+            StartCoroutine(FadeOut(1));
         if (Input.GetKeyDown(KeyCode.Keypad0) && !m_isTransitioning)
-            StartCoroutine(TransisitionLevelFadeToBlack(0));
+            StartCoroutine(FadeOut(0));
     }
 
     public void ChangeLevel(int sceneID)
     {
-        StartCoroutine(TransisitionLevelFadeToBlack(sceneID));
+        StartCoroutine(FadeOut(sceneID));
     }
 
     public void QuitGame()
@@ -41,7 +41,22 @@ public class LevelTransitionManager : MonoBehaviour
         StartCoroutine(QuitFadeToBlack());
     }
 
-    IEnumerator TransisitionLevelFadeToBlack(int sceneID)
+    IEnumerator FadeIn()
+    {
+        m_isTransitioning = true;
+        m_fadeImage.enabled = true;
+        float duration = m_transitionDuration * 0.5f;
+        while (duration > 0f)
+        {
+            m_fadeImage.color = new Color(0, 0, 0, duration / (m_transitionDuration * 0.5f));
+            duration -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        m_fadeImage.enabled = false;
+        m_isTransitioning = false;
+    }
+
+    IEnumerator FadeOut(int sceneID)
     {
         m_isTransitioning = true;
         m_fadeImage.enabled = true;
@@ -53,12 +68,6 @@ public class LevelTransitionManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         SceneManager.LoadScene(sceneID);
-        while (duration > 0f)
-        {
-            m_fadeImage.color = new Color(0, 0, 0, duration / (m_transitionDuration * 0.5f));
-            duration -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
         m_fadeImage.enabled = false;
         m_isTransitioning = false;
     }
@@ -75,10 +84,10 @@ public class LevelTransitionManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650cc5a391f840944ab969772d05b335, type: 3}
+  m_Name: PhilibertBeauOpt2
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 0}
+  m_prompt: 3 Ration
+  m_endPrompt: "Merci Majest\xE9, je pourrais donner ce grain au boulanger, et j'essaierai
+    de r\xE9parer ma charrue demain."
+  m_comebackMessage: "Merci Majest\xE9"
+  m_choiceMade:
+    m_PersistentCalls:
+      m_Calls: []
+  m_effect: {fileID: 11400000, guid: fba8f7018fcd28541b57720b62d38f1c, type: 2}

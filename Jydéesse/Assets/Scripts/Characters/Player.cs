@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     float m_satisfaction = 0;
     [SerializeField]
-    float m_requiredSatisfaction = 0;
+    public float m_requiredSatisfaction = 0;
     [SerializeField]
     float m_food = 0;
     [SerializeField]
@@ -156,19 +156,19 @@ public class Player : MonoBehaviour
 
         if (m_time <= 0)
         {
-            if (m_satisfaction >= m_requiredSatisfaction)
-                SceneManager.LoadScene("WinMenu");
+            if (m_satisfaction <= 0)
+                SceneManager.LoadScene("LooseMenu");
         }
     }
     void MoveLeft()
     {
-        if (m_currentPos > 0 && !m_isOccupied)
+        if (m_currentPos > 0)
             Destination = m_positions[--m_currentPos];
     }
 
     void MoveRight()
     {
-        if (m_currentPos < 2 && !m_isOccupied)
+        if (m_currentPos < 2)
             Destination = m_positions[++m_currentPos];
     }
 }

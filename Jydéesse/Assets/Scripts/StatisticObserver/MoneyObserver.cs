@@ -21,6 +21,6 @@ public class MoneyObserver : MonoBehaviour
     // Update is called once per frame
     void UpdateDisplay()
     {
-        m_infoText.text = "Money : \n"+m_player.getMoney();
+        m_infoText.text = m_player.getMoney().ToString();
     }
 }

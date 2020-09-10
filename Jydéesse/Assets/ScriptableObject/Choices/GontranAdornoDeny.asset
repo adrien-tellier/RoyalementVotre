@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GontranAdornoDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Je suis navr\xE9 que nous n'ayons pas pu conclure en bon termes cet
     arrangement"
   m_comebackMessage: "Je suis navr\xE9 que nous n'ayons pas pu conclure en bon termes

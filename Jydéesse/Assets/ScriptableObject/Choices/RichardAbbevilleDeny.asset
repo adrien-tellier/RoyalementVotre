@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RichardAbbevilleDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Vraiment? Je pensais que vous \xE9tiez \xE0 l\u2019\xE9coute de vos
     sujets?"
   m_comebackMessage: "Je pensais que vous \xE9tiez \xE0 l\u2019\xE9coute de vos sujets?"

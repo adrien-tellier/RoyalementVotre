@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -12,10 +13,16 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private uint m_startPosition = 1;
 
+    [SerializeField]
+    private Player m_player;
+
     private uint m_currentPosition = 1;
     private uint m_previousPosition = 1;
     private Coroutine m_transition = null;
     private bool m_isTransitioning = false;
+
+    public UnityEvent e_goRight;
+    public UnityEvent e_goLeft;
 
     private void Awake()
     {
@@ -23,48 +30,29 @@ public class CameraMovement : MonoBehaviour
         m_currentPosition = m_startPosition;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void MoveLeft()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (!m_isTransitioning)
-                MoveLeft();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (!m_isTransitioning)
-                MoveRight();
-        }
-    }
-
-    void MoveLeft()
-    {
-        if (m_currentPosition > 0)
+        if (m_currentPosition > 0 && !m_isTransitioning && !m_player.getOccupiedStatus() && !m_player.IsMoving)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition--;
             if (m_transition != null)
                 StopCoroutine(m_transition);
             m_transition = StartCoroutine(CameraPositionTransition());
+            e_goLeft.Invoke();
         }
     }
 
-    void MoveRight()
+    public void MoveRight()
     {
-        if (m_currentPosition < m_positions.Length - 1)
+        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning && !m_player.getOccupiedStatus() && !m_player.IsMoving)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition++;
             if (m_transition != null)
                 StopCoroutine(m_transition);
             m_transition = StartCoroutine(CameraPositionTransition());
+            e_goRight.Invoke();
         }
     }
 
@@ -81,14 +69,4 @@ public class CameraMovement : MonoBehaviour
         transform.position = m_positions[m_currentPosition];
         m_isTransitioning = false;
     }
-
-    /*IEnumerator WaitEndTransition(bool isRight)
-    {
-        while (m_isTransitioning)
-            yield return new WaitForFixedUpdate();
-        if (isRight)
-            MoveRight();
-        else
-            MoveLeft();
-    }*/
 }

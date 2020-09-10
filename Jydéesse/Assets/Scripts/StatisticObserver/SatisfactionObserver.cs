@@ -21,6 +21,6 @@ public class SatisfactionObserver : MonoBehaviour
     // Update is called once per frame
     void UpdateDisplay()
     {
-        m_infoText.text = "Satifaction : \n"+m_player.getSatisfaction();
+        m_infoText.text = m_player.getSatisfaction().ToString();
     }
 }

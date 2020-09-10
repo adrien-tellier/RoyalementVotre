@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "B\xE9atriceForgeDeny"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Mes enfants ne pourront pas manger \xE0 cause votre choix."
   m_comebackMessage: "Mes enfants ne pourront pas manger \xE0 cause votre choix."
   m_choiceMade:

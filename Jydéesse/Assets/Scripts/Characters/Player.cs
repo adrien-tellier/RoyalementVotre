@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     float m_time = 0;
 
+    [SerializeField]
+    private CameraMovement m_camera = null;
+
     // Statistic events
     public UnityEvent e_foodChanged;
     public UnityEvent e_moneyChanged;
@@ -49,6 +52,11 @@ public class Player : MonoBehaviour
     public float m_maxY;
 
     private Vector3 m_destination;
+
+    [SerializeField]
+    Vector3[] m_positions = new Vector3[3];
+
+    int m_currentPos;
 
     //Animations
     private Animator m_animator;
@@ -107,10 +115,15 @@ public class Player : MonoBehaviour
         m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
+    private void Start() 
+    {
+        m_currentPos = 1;
+        m_camera.e_goLeft.AddListener(MoveLeft);
+        m_camera.e_goRight.AddListener(MoveRight);
+    }
+
     private void FixedUpdate()
     {
-
-        //if (Vector3.Distance(m_destination, transform.position) >= m_stopDistanceX)
         if (Mathf.Abs(m_destination.y - transform.position.y) >= m_stopDistanceY || Mathf.Abs(m_destination.x - transform.position.x) >= m_stopDistanceX)
         {
             Vector3 direction = (m_destination - transform.position);
@@ -145,8 +158,17 @@ public class Player : MonoBehaviour
         {
             if (m_satisfaction >= m_requiredSatisfaction)
                 SceneManager.LoadScene("WinMenu");
-            else
-                SceneManager.LoadScene("LooseMenu");
         }
+    }
+    void MoveLeft()
+    {
+        if (m_currentPos > 0 && !m_isOccupied)
+            Destination = m_positions[--m_currentPos];
+    }
+
+    void MoveRight()
+    {
+        if (m_currentPos < 2 && !m_isOccupied)
+            Destination = m_positions[++m_currentPos];
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChatDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Miaouuuuu\u2026."
   m_comebackMessage: "Miaouuuuu\u2026."
   m_choiceMade:

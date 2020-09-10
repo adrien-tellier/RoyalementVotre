@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThomasBergerDeny
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "Je croyais que vous \xE9tiez \xE0 notre \xE9coute Majest\xE9 ?"
   m_comebackMessage: "Je croyais que vous \xE9tiez \xE0 notre \xE9coute Majest\xE9
     ?"

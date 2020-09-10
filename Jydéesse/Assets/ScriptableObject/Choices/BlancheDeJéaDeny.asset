@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "BlancheDeJ\xE9aDeny"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: "D\xE9cliner"
+  m_prompt: Refuser
   m_endPrompt: "C\u2019est pas juste Majest\xE9, c\u2019est parce que vous savez
     pas dessiner !"
   m_comebackMessage: "C\u2019est pas juste Majest\xE9"

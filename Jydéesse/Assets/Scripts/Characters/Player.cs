@@ -35,13 +35,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float m_stopDistance = 5f;
 
-    private Vector3 m_destination;
+    private float m_destination;
 
     //Animations
     private Animator m_animator;
     private SpriteRenderer m_spriteRenderer;
 
-    public Vector3 Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
+    public float Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
     public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
     public bool IsOnQuest { get { return m_isOnQuest; } set { m_isOnQuest = value; } }
 
@@ -89,16 +89,16 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        m_destination = transform.position;
+        m_destination = transform.position.x;
         m_animator = gameObject.GetComponentInChildren<Animator>();
         m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, m_destination) >= m_stopDistance)
+        if (Mathf.Abs(m_destination - transform.position.x) >= m_stopDistance)
         {
-            Vector3 direction = (m_destination - transform.position).normalized;
+            Vector3 direction = new Vector3((m_destination - transform.position.x),0f,0f).normalized;
             transform.position += direction * m_speed * Time.fixedDeltaTime;
 
             if (direction.x < 0)

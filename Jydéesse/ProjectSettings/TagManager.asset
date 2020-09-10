@@ -42,6 +42,9 @@ TagManager:
   - name: Background
     uniqueID: 4146478575
     locked: 0
+  - name: PropsBackground
+    uniqueID: 3258897101
+    locked: 0
   - name: CharacterBackground
     uniqueID: 3794145415
     locked: 0
@@ -50,6 +53,9 @@ TagManager:
     locked: 0
   - name: CharacterForground
     uniqueID: 2482713543
+    locked: 0
+  - name: PropsForground
+    uniqueID: 1178431831
     locked: 0
   - name: Forground
     uniqueID: 2342879961

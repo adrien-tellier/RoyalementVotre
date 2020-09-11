@@ -6,6 +6,16 @@ public class AnimalDialogue : Event
 {
     protected new void OnMouseDown() 
     {   
+        Vector3 position = transform.position;
+
+        if (position.y < m_player.m_minY)
+                position.y = m_player.m_minY;
+
+        if (position.y > m_player.m_maxY)
+                position.y = m_player.m_maxY;
+
+        m_player.Destination = position;
+
         // Do nothing if the player is already occupied
         if (m_player.getOccupiedStatus())
         {

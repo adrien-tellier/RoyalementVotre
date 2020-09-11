@@ -44,9 +44,12 @@ public class ChoiceEvent : Event
         m_declineButton.gameObject.SetActive(false);
 
         // Remove the buttons listeners
-        m_foodButton.onClick.RemoveAllListeners();
-        m_moneyButton.onClick.RemoveAllListeners();
-        m_declineButton.onClick.RemoveAllListeners();
+        m_foodButton.onClick.RemoveListener(choices[0].affectPlayer);
+        m_foodButton.onClick.RemoveListener(FoodOptionChosen);
+        m_moneyButton.onClick.RemoveListener(choices[1].affectPlayer);
+        m_moneyButton.onClick.RemoveListener(MoneyOptionChosen);
+        m_declineButton.onClick.RemoveListener(choices[2].affectPlayer);
+        m_declineButton.onClick.RemoveListener(DeclineChosen);
         
         // Let the player interact again
         m_player.setOccupiedStatus(false);

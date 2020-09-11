@@ -16,11 +16,6 @@ public class CharacterPool : MonoBehaviour
         m_characters = gameObject.GetComponentsInChildren<Character>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void SendPositionToPlayer(Vector3 position)
     {
         if (!m_player.getOccupiedStatus() || m_player.IsOnQuest)

@@ -194,8 +194,8 @@ public class RequestEvent : Event
         m_declineButton.gameObject.SetActive(false);
 
         // Remove the buttons listeners
-        m_acceptButton.onClick.RemoveAllListeners();
-        m_declineButton.onClick.RemoveAllListeners();
+        m_acceptButton.onClick.RemoveListener(Accepted);
+        m_declineButton.onClick.RemoveListener(Declined);
         
         // Let the player interact again
         m_player.setOccupiedStatus(false);

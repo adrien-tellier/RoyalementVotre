@@ -14500,9 +14500,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1812253753
-  m_SortingLayer: -3
-  m_SortingOrder: 2
+  m_SortingLayerID: -500821881
+  m_SortingLayer: -5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 302e5a6e67d2339449ba9dab7fe49e2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18644,7 +18644,7 @@ MonoBehaviour:
   m_satisfaction: 20
   m_requiredSatisfaction: 100
   m_food: 20
-  m_time: 5
+  m_time: 60
   m_camera: {fileID: 519420030}
   e_foodChanged:
     m_PersistentCalls:
@@ -18754,7 +18754,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8600778e8c46c994aaa43031618042e8, type: 3}
+    m_Font: {fileID: 12800000, guid: f09643aa143fea44697f031044d6bbc8, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0

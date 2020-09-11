@@ -156,8 +156,10 @@ public class Player : MonoBehaviour
 
         if (m_time <= 0)
         {
-            if (m_satisfaction <= 0)
+            if (m_satisfaction < m_requiredSatisfaction)
                 SceneManager.LoadScene("LooseMenu");
+            else 
+                SceneManager.LoadScene("WinMenu");
         }
     }
     void MoveLeft()

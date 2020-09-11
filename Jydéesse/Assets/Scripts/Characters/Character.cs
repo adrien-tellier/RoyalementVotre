@@ -51,7 +51,8 @@ public class Character : MonoBehaviour
 
     private void OnMouseDown()
     {
-        gameObject.GetComponentInParent<CharacterPool>().SendPositionToPlayer(transform.position);
+        if (Time.timeScale != 0)
+            gameObject.GetComponentInParent<CharacterPool>().SendPositionToPlayer(transform.position);
     }
 
     private void FixedUpdate() 

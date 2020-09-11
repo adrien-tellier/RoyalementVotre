@@ -5,25 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
+    [SerializeField]
     private AudioSource m_menuMusic = null;
+    [SerializeField]
     private AudioSource m_gameMusic = null;
+    [SerializeField]
     private AudioSource m_winMusic = null;
+    [SerializeField]
     private AudioSource m_loseMusic = null;
-
-    private void Awake()
-    {
-        AudioSource[] musics = GetComponentsInChildren<AudioSource>();
-        m_menuMusic = musics[0];
-        m_gameMusic = musics[1];
-        m_winMusic = musics[2];
-        m_loseMusic = musics[3];
-        PlaySceneMusic();
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        PlaySceneMusic();
     }
 
     // Update is called once per frame
@@ -36,6 +30,7 @@ public class MusicManager : MonoBehaviour
     {
         PlaySceneMusic();
     }
+
     private void PlaySceneMusic()
     {
         if (SceneManager.GetActiveScene().name == "MainScene")

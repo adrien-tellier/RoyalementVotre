@@ -2203,7 +2203,7 @@ GameObject:
   - component: {fileID: 1763902170}
   m_Layer: 0
   m_Name: Musics
-  m_TagString: Untagged
+  m_TagString: MusicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2220,6 +2220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a01c616ddc95e41808ae7a6d7a858d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_menuMusic: {fileID: 1449521942}
+  m_gameMusic: {fileID: 1391670534}
+  m_winMusic: {fileID: 412142190}
+  m_loseMusic: {fileID: 2009513688}
 --- !u!114 &1763902171
 MonoBehaviour:
   m_ObjectHideFlags: 0

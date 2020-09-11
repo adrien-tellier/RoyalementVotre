@@ -23,6 +23,9 @@ public class Action : MonoBehaviour
 
     private void OnMouseDown() 
     {
+        if (Time.timeScale == 0)
+            return;
+            
         if (m_isAvailable)
         {
             Vector3 position = transform.position;

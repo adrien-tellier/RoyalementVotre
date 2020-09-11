@@ -57,6 +57,7 @@ public class GuardEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        m_chara.PlaySatisfiedSound();
         ChangeSpeaker("Le Roi");
         DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
         yield return null;
@@ -73,6 +74,7 @@ public class GuardEvent : Event
 
         // Prompt the event and the buttons
         base.OnMouseDown();
+        m_chara.PlaySatisfiedSound();
 
         m_acceptButton.gameObject.SetActive(true);
         m_declineButton.gameObject.SetActive(true);
@@ -102,7 +104,7 @@ public class GuardEvent : Event
         DisplayDialogue(m_comebackLaterText);
 
         CloseEvent();
-        
+        m_chara.PlayHappySound();
     }
     private void CloseEvent()
     {

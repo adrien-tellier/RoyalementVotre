@@ -41,6 +41,9 @@ public class Event : MonoBehaviour
     [SerializeField]
     protected bool m_canComeAgain;
 
+    [SerializeField]
+    protected Character m_chara;
+
     // When the player arrives next to the character, displays the startDialogue
     protected void OnMouseDown() 
     {

@@ -84,6 +84,7 @@ public class ChoiceEvent : Event
         }
         // Prompt the event and choices texts
         base.OnMouseDown();
+        m_chara.PlaySatisfiedSound();
 
         m_foodButton.gameObject.SetActive(true);
         m_foodButton.GetComponentInChildren<Text>().text = choices[0].m_prompt;
@@ -113,6 +114,8 @@ public class ChoiceEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        
+        m_chara.PlaySatisfiedSound();
         ChangeSpeaker("Le Roi");
         DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
         yield return null;
@@ -124,6 +127,9 @@ public class ChoiceEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        
+        m_chara.PlaySatisfiedSound();
+        
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_comebackDialogue);
         yield return null;
@@ -134,6 +140,8 @@ public class ChoiceEvent : Event
     {
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[0].m_endPrompt);
+        m_chara.PlayHappySound();
+
         m_comebackDialogue = choices[0].m_comebackMessage;
         CloseEvent();
         m_status = EStatus.DONE;
@@ -142,6 +150,8 @@ public class ChoiceEvent : Event
     {
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[1].m_endPrompt);
+        m_chara.PlayHappySound();
+
         m_comebackDialogue = choices[1].m_comebackMessage;
         CloseEvent();
         m_status = EStatus.DONE;
@@ -150,6 +160,8 @@ public class ChoiceEvent : Event
     {
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[2].m_endPrompt);
+
+        m_chara.PlayDisatisfiedSound();
 
         m_comebackDialogue = choices[2].m_comebackMessage;
 

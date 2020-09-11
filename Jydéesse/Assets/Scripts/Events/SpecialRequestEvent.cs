@@ -61,6 +61,7 @@ public class SpecialRequestEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+        m_chara.PlaySatisfiedSound();
         ChangeSpeaker("Le Roi");
         DisplayDialogue("Je dois trouver " + m_player.m_actionTargetName);
         yield return null;
@@ -77,6 +78,8 @@ public class SpecialRequestEvent : Event
 
         // Prompt the event and the buttons
         base.OnMouseDown();
+
+        m_chara.PlaySatisfiedSound();
 
         m_acceptButton.gameObject.SetActive(true);
         m_declineButton.gameObject.SetActive(true);
@@ -95,6 +98,8 @@ public class SpecialRequestEvent : Event
         {
             yield return new WaitForSeconds(.01f);
         }
+
+        m_chara.PlaySatisfiedSound();
 
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_comebackDialogue);
@@ -116,6 +121,8 @@ public class SpecialRequestEvent : Event
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_acceptText);
 
+        m_chara.PlayHappySound();
+
         // Hide the buttons
         m_acceptButton.gameObject.SetActive(false);
         m_declineButton.gameObject.SetActive(false);
@@ -134,6 +141,8 @@ public class SpecialRequestEvent : Event
         if (m_declineEffect.m_player == null)
                 m_declineEffect.m_player = m_player;
         m_declineEffect.affectPlayer();
+
+        m_chara.PlayDisatisfiedSound();
         
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_declineText);

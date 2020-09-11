@@ -7,12 +7,16 @@ public class MusicManager : MonoBehaviour
 {
     private AudioSource m_menuMusic = null;
     private AudioSource m_gameMusic = null;
+    private AudioSource m_winMusic = null;
+    private AudioSource m_loseMusic = null;
 
     private void Awake()
     {
         AudioSource[] musics = GetComponentsInChildren<AudioSource>();
         m_menuMusic = musics[0];
         m_gameMusic = musics[1];
+        m_winMusic = musics[2];
+        m_loseMusic = musics[3];
         PlaySceneMusic();
     }
 
@@ -36,13 +40,23 @@ public class MusicManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
-            m_gameMusic.Play();
             m_menuMusic.Stop();
+            m_gameMusic.Play();
+        }
+        else if (SceneManager.GetActiveScene().name == "WinMenu")
+        {
+            m_gameMusic.Stop();
+            m_winMusic.Play();
+        }
+        else if (SceneManager.GetActiveScene().name == "LoseMenu")
+        {
+            m_gameMusic.Stop();
+            m_loseMusic.Play();
         }
         else if (!m_menuMusic.isPlaying)
         {
-            m_menuMusic.Play();
             m_gameMusic.Stop();
+            m_menuMusic.Play();
         }
     }
 }

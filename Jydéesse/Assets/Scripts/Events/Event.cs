@@ -44,6 +44,9 @@ public class Event : MonoBehaviour
     [SerializeField]
     protected Character m_chara;
 
+    [SerializeField]
+    protected Bubble m_bubble;
+
     // When the player arrives next to the character, displays the startDialogue
     protected void OnMouseDown() 
     {
@@ -61,6 +64,23 @@ public class Event : MonoBehaviour
     {
         m_speakerTextBox.text = name;
         m_speakerTextBox2.gameObject.SetActive(true);
+    }
+
+    private void FixedUpdate() {
+        if (m_status == EStatus.AVAILABLE && (!m_player.getOccupiedStatus() || (m_player.IsMoving && !m_player.IsOnQuest)))
+            m_bubble.gameObject.SetActive(true);
+        else
+            m_bubble.gameObject.SetActive(false);
+    }
+
+    private void OnMouseOver() 
+    {
+        m_bubble.SwitchToTimeSprite();
+    }
+
+    private void OnMouseExit()
+    {
+        m_bubble.SwitchToTypeSprite();
     }
 
 }

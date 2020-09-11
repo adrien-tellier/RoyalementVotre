@@ -53,6 +53,8 @@ public class RequestEvent : Event
     // Called when the player clicks on the character
     protected new void OnMouseDown() 
     {   
+        if (Time.timeScale == 0)
+            return;
         // The player got back from request
         if (m_status == EStatus.REQUEST_DONE)
         {

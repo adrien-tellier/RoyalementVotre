@@ -57,6 +57,9 @@ public class ChoiceEvent : Event
 
     protected new void OnMouseDown() 
     {   
+        if (Time.timeScale == 0)
+            return;
+
         // Do nothing if the player is already occupied
         if (m_player.getOccupiedStatus())
         {

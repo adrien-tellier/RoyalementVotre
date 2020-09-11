@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
     public void CheckLost()
     {
         if (m_money == 0 || m_food == 0 || m_satisfaction == 0)
-            SceneManager.LoadScene("LooseMenu");
+            SceneManager.LoadScene("LoseMenu");
 
         if (m_time <= 0)
         {

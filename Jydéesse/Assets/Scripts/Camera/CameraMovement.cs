@@ -14,15 +14,15 @@ public class CameraMovement : MonoBehaviour
     private uint m_startPosition = 1;
 
     [SerializeField]
-    private Player m_player;
+    private Player m_player = null;
 
     private uint m_currentPosition = 1;
     private uint m_previousPosition = 1;
     private Coroutine m_transition = null;
     private bool m_isTransitioning = false;
 
-    public UnityEvent e_goRight;
-    public UnityEvent e_goLeft;
+    public UnityEvent e_goRight = null;
+    public UnityEvent e_goLeft = null;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveLeft()
     {
-        if (m_currentPosition > 0 && !m_isTransitioning && (!m_player.getOccupiedStatus() && !m_player.IsMoving) || m_player.IsOnQuest)
+        if (m_currentPosition > 0 && !m_isTransitioning && (!m_player.getOccupiedStatus() || m_player.IsOnQuest) && !m_player.IsMoving)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition--;
@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveRight()
     {
-        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning && (!m_player.getOccupiedStatus() && !m_player.IsMoving) || m_player.IsOnQuest)
+        if (m_currentPosition < m_positions.Length - 1 && !m_isTransitioning && (!m_player.getOccupiedStatus() || m_player.IsOnQuest) && !m_player.IsMoving)
         {
             m_previousPosition = m_currentPosition;
             m_currentPosition++;

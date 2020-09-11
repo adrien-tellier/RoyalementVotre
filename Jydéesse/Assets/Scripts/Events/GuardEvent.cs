@@ -123,6 +123,6 @@ public class GuardEvent : Event
         if (m_player.getSatisfaction() > m_player.m_requiredSatisfaction)
             SceneManager.LoadScene("WinMenu");
         else
-            SceneManager.LoadScene("LooseMenu");
+            SceneManager.LoadScene("LoseMenu");
     }
 }

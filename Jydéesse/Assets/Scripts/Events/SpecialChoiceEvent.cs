@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpecialChoiceEvent : ChoiceEvent
 {
     [SerializeField]
-    private GameObject[] m_gameObjectToSpawn;
+    private GameObject[] m_gameObjectToSpawn = new GameObject[2];
 
     public int m_triggerChoiceId;
 

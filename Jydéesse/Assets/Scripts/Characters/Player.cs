@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -59,6 +60,14 @@ public class Player : MonoBehaviour
     int m_currentPos;
 
     //Animations
+    [SerializeField]
+    private Sprite m_kingSprite;
+    [SerializeField]
+    private Sprite m_queenSprite;
+    [SerializeField]
+    private AnimatorController m_kingAnimatorController;
+    [SerializeField]
+    private AnimatorController m_queenAnimatorController;
     private Animator m_animator;
     private SpriteRenderer m_spriteRenderer;
 
@@ -113,6 +122,16 @@ public class Player : MonoBehaviour
         m_destination = transform.position;
         m_animator = gameObject.GetComponentInChildren<Animator>();
         m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        if (PlayerPrefs.GetInt("IsQueen") == 1)
+        {
+            m_animator.runtimeAnimatorController = m_queenAnimatorController;
+            m_spriteRenderer.sprite = m_kingSprite;
+        }
+        else
+        {
+            m_animator.runtimeAnimatorController = m_kingAnimatorController;
+            m_spriteRenderer.sprite = m_queenSprite;
+        }
     }
 
     private void Start() 
@@ -128,6 +147,11 @@ public class Player : MonoBehaviour
         {
             Vector3 direction = (m_destination - transform.position);
 
+            if (direction.x < 0)
+                m_spriteRenderer.flipX = true;
+            else
+                m_spriteRenderer.flipX = false;
+
             if (Mathf.Abs(m_destination.y - transform.position.y) <= m_stopDistanceY)
                 direction.y = 0f;
                 
@@ -136,11 +160,6 @@ public class Player : MonoBehaviour
 
             direction.Normalize();
             transform.position += direction * m_speed * Time.fixedDeltaTime;
-
-            if (direction.x < 0)
-                m_spriteRenderer.flipX = true;
-            else
-                m_spriteRenderer.flipX = false;
         }
         else if (m_isMoving)
             m_isMoving = false;

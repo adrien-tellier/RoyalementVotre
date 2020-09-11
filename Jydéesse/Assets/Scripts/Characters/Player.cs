@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Resources;
 
 public class Player : MonoBehaviour
 {
@@ -61,13 +61,9 @@ public class Player : MonoBehaviour
 
     //Animations
     [SerializeField]
-    private Sprite m_kingSprite;
+    private GameObject m_kingSprite;
     [SerializeField]
-    private Sprite m_queenSprite;
-    [SerializeField]
-    private AnimatorController m_kingAnimatorController;
-    [SerializeField]
-    private AnimatorController m_queenAnimatorController;
+    private GameObject m_queenSprite;
     private Animator m_animator;
     private SpriteRenderer m_spriteRenderer;
 
@@ -120,17 +116,19 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         m_destination = transform.position;
-        m_animator = gameObject.GetComponentInChildren<Animator>();
-        m_spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
         if (PlayerPrefs.GetInt("IsQueen") == 1)
         {
-            m_animator.runtimeAnimatorController = m_queenAnimatorController;
-            m_spriteRenderer.sprite = m_kingSprite;
+            m_kingSprite.SetActive(false);
+            m_queenSprite.SetActive(true);
+            m_spriteRenderer = m_queenSprite.GetComponent<SpriteRenderer>();
+            m_animator = m_queenSprite.GetComponent<Animator>();
         }
         else
         {
-            m_animator.runtimeAnimatorController = m_kingAnimatorController;
-            m_spriteRenderer.sprite = m_queenSprite;
+            m_kingSprite.SetActive(true);
+            m_queenSprite.SetActive(false);
+            m_spriteRenderer = m_kingSprite.GetComponent<SpriteRenderer>();
+            m_animator = m_kingSprite.GetComponent<Animator>();
         }
     }
 

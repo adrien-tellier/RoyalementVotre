@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
   m_prompt: Refuser
-  m_endPrompt: Mais... Mais... Je vous pensais bon
-  m_comebackMessage: 
+  m_endPrompt: "Mais... Mais... Je vous pensais bon. S'il vous plait r\xE9flechisez-y"
+  m_comebackMessage: Mais... Mais... Je vous pensais bon
   m_choiceMade:
     m_PersistentCalls:
       m_Calls: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: HubertSentierFood
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 2
-  m_endPrompt: "Merci Majest\xE9, je vais aller au boulanger pour acheter du pain
-    !"
+  m_prompt: 30
+  m_endPrompt: "Merci beaucoup Majest\xE9, je peux en garder un pour moi ?"
   m_comebackMessage: "Merci Majest\xE9"
   m_choiceMade:
     m_PersistentCalls:

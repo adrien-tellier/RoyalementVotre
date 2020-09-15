@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
   m_prompt: "D\xE9cliner"
-  m_endPrompt: "Je comprends tout a fait, je vous laisse profiter de cette soir\xE9e."
+  m_endPrompt: "Je comprends tout a fait, je vous laisse profiter de cette soir\xE9e.
+    Si toutefois vous souhaitez m'aider revenez me parler"
   m_comebackMessage: Profitez bien de votre banquet
   m_choiceMade:
     m_PersistentCalls:

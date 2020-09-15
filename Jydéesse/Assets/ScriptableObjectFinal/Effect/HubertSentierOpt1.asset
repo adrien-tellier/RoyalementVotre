@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb88f5e0c90acf4f91f75a71cffa602, type: 3}
   m_Name: HubertSentierOpt1
   m_EditorClassIdentifier: 
-  m_effectOnMoney: -30
-  m_effectOnSatifaction: 2
-  m_effectOnFood: 0
+  m_effectOnMoney: 0
+  m_effectOnSatifaction: 4
+  m_effectOnFood: -30
   m_effectOnTime: -5
   m_player: {fileID: 0}

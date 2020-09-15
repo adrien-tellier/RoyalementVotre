@@ -15,7 +15,7 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_prompt: "D\xE9cliner"
   m_endPrompt: "C\u2019est pas juste Majest\xE9, c\u2019est parce que vous savez
-    pas dessiner !"
+    pas dessiner ! Revenez me parlez si vous changez d'avis"
   m_comebackMessage: "C\u2019est pas juste Majest\xE9"
   m_choiceMade:
     m_PersistentCalls:

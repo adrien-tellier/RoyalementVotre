@@ -29,6 +29,9 @@ public class SpecialRequestEvent : Event
     [SerializeField]
     private Effect m_declineEffect = null; 
 
+    [SerializeField]
+    private bool m_isRequestCoin;
+
 
     // Called when the player clicks on the character
     protected new void OnMouseDown() 
@@ -123,6 +126,11 @@ public class SpecialRequestEvent : Event
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(m_acceptText);
 
+        if (m_isRequestCoin)
+            m_eventSoundManager.PlayCoinLoss();
+        else
+            m_eventSoundManager.PlayFoodLoss();
+            
         m_chara.PlayHappySound();
 
         // Hide the buttons

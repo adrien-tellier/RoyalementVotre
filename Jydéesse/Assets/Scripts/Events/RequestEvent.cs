@@ -36,8 +36,9 @@ public class RequestEvent : Event
     private Effect m_declineEffect = null; 
 
 
-    private void Start() 
+    private new void Start() 
     {
+        base.Start();
         m_action.m_requestDone.AddListener(RequestCompleted);
     }
 
@@ -47,6 +48,7 @@ public class RequestEvent : Event
         m_comebackDialogue = m_thanksText;
         m_status = EStatus.REQUEST_DONE;
 
+        ChangeSpeaker("Le Roi");
         DisplayDialogue("J'ai trouvé " + m_action.m_actionTargetName);
     }
 

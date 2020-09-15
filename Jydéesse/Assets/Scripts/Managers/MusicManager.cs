@@ -13,6 +13,8 @@ public class MusicManager : MonoBehaviour
     private AudioSource m_winMusic = null;
     [SerializeField]
     private AudioSource m_loseMusic = null;
+    [SerializeField]
+    private AudioSource m_ambientMusic = null;
 
     // Start is called before the first frame update
     void Start()
@@ -36,21 +38,25 @@ public class MusicManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
             m_menuMusic.Stop();
+            m_ambientMusic.Play();
             m_gameMusic.Play();
         }
         else if (SceneManager.GetActiveScene().name == "WinMenu")
         {
             m_gameMusic.Stop();
+            m_ambientMusic.Stop();
             m_winMusic.Play();
         }
         else if (SceneManager.GetActiveScene().name == "LoseMenu")
         {
             m_gameMusic.Stop();
+            m_ambientMusic.Stop();
             m_loseMusic.Play();
         }
         else if (!m_menuMusic.isPlaying)
         {
             m_gameMusic.Stop();
+            m_ambientMusic.Stop();
             m_menuMusic.Play();
         }
     }

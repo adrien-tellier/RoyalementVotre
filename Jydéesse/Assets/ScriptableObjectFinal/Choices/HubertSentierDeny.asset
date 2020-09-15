@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
   m_prompt: "D\xE9cliner"
-  m_endPrompt: Mais enfin, comment je peux manger sans pain ?!
+  m_endPrompt: "M'enfin, comment je peux manger sans pain ?! Si jamais vous voulez
+    vraiment faire plaisir \xE0 vos invit\xE9s revenez me voir"
   m_comebackMessage: Sans pain ce banquet est bien triste
   m_choiceMade:
     m_PersistentCalls:

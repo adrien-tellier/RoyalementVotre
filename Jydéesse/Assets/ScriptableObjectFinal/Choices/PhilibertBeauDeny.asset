@@ -15,7 +15,7 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_prompt: "D\xE9cliner"
   m_endPrompt: "Je comprends que les temps sont durs, mais le peuple n\u2019aura
-    plus de pain Majest\xE9."
+    plus de pain si vous refusez Majest\xE9."
   m_comebackMessage: A cause de vous le peuple n'aura plus de pain
   m_choiceMade:
     m_PersistentCalls:

@@ -18,8 +18,9 @@ public class ChoiceEvent : Event
     [SerializeField]
     public Button m_declineButton = null;
 
-    protected void Start() 
+    protected new void Start() 
     {
+        base.Start();
         // Setup choices
         foreach (Choice c in choices)
         {
@@ -143,7 +144,9 @@ public class ChoiceEvent : Event
     {
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[0].m_endPrompt);
+
         m_chara.PlayHappySound();
+        m_eventSoundManager.PlayFoodLoss();
 
         m_comebackDialogue = choices[0].m_comebackMessage;
         CloseEvent();
@@ -153,7 +156,9 @@ public class ChoiceEvent : Event
     {
         ChangeSpeaker(m_eventHolderSpeakerName);
         DisplayDialogue(choices[1].m_endPrompt);
+
         m_chara.PlayHappySound();
+        m_eventSoundManager.PlayCoinLoss();
 
         m_comebackDialogue = choices[1].m_comebackMessage;
         CloseEvent();

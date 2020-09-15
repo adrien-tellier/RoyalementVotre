@@ -21,8 +21,9 @@ public class GuardEvent : Event
     [SerializeField]
     private Button m_declineButton = null;
 
-    private void Start() 
+    private new void Start() 
     {
+        base.Start();
         m_player.e_satisfactionChanged.AddListener(AdaptMessageToSatifaction);
     }
 

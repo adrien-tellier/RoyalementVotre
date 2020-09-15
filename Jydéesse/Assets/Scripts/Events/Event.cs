@@ -47,6 +47,13 @@ public class Event : MonoBehaviour
     [SerializeField]
     protected Bubble m_bubble;
 
+    protected EventSoundManager m_eventSoundManager;
+
+    protected void Start() 
+    {
+        m_eventSoundManager = GetComponentInParent<EventSoundManager>();
+    }
+
     // When the player arrives next to the character, displays the startDialogue
     protected void OnMouseDown() 
     {
@@ -82,5 +89,6 @@ public class Event : MonoBehaviour
     {
         m_bubble.SwitchToTypeSprite();
     }
+
 
 }

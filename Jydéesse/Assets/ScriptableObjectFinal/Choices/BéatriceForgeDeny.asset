@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
   m_prompt: "D\xE9cliner"
-  m_endPrompt: "Mes enfants ne pourront pas manger \xE0 cause votre choix."
+  m_endPrompt: "Mes enfants ne pourront pas manger \xE0 cause votre choix. Revenez
+    me parler si vous changez d'avis"
   m_comebackMessage: "Mes enfants ne pourront pas manger \xE0 cause votre choix."
   m_choiceMade:
     m_PersistentCalls:

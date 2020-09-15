@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
   m_prompt: 10
-  m_endPrompt: Merci beaucoup, je vous donne 10 cookies !
+  m_endPrompt: Merci beaucoup. Tenez, prenez ces quelque rations en remerciement
   m_comebackMessage: Merci beaucoup
   m_choiceMade:
     m_PersistentCalls:

@@ -67,7 +67,16 @@ public class Player : MonoBehaviour
     private Animator m_animator;
     private SpriteRenderer m_spriteRenderer;
 
-    public Vector3 Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; } }
+    //Sound
+    [SerializeField]
+    private AudioSource m_footStepQueen;
+
+    [SerializeField]
+    private AudioSource m_footStepKing;
+
+    private bool m_isQueen;
+
+    public Vector3 Destination { get { return m_destination; } set { m_destination = value; m_isMoving = true; PlayFootStep();} }
     public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
     public bool IsOnQuest { get { return m_isOnQuest; } set { m_isOnQuest = value; } }
 
@@ -122,6 +131,7 @@ public class Player : MonoBehaviour
             m_queenSprite.SetActive(true);
             m_spriteRenderer = m_queenSprite.GetComponent<SpriteRenderer>();
             m_animator = m_queenSprite.GetComponent<Animator>();
+            m_isQueen = true;
         }
         else
         {
@@ -129,6 +139,7 @@ public class Player : MonoBehaviour
             m_queenSprite.SetActive(false);
             m_spriteRenderer = m_kingSprite.GetComponent<SpriteRenderer>();
             m_animator = m_kingSprite.GetComponent<Animator>();
+            m_isQueen = false;
         }
     }
 
@@ -160,7 +171,10 @@ public class Player : MonoBehaviour
             transform.position += direction * m_speed * Time.fixedDeltaTime;
         }
         else if (m_isMoving)
+        {
             m_isMoving = false;
+            StopFootStep();
+        }
 
         m_animator.SetBool("IsMoving", m_isMoving);
         m_animator.SetBool("IsSpeaking", m_isOccupied && !m_isMoving);
@@ -189,5 +203,21 @@ public class Player : MonoBehaviour
     {
         if (m_currentPos < 2)
             Destination = m_positions[++m_currentPos];
+    }
+
+    private void PlayFootStep()
+    {
+        if (m_isQueen)
+            m_footStepQueen.Play();
+        else
+            m_footStepKing.Play();
+    }
+
+    private void StopFootStep()
+    {
+        if (m_isQueen)
+            m_footStepQueen.Stop();
+        else
+            m_footStepKing.Stop();
     }
 }

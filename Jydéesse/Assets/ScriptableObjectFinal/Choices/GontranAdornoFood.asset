@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GontranAdornoFood
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20
+  m_prompt: 15
   m_endPrompt: "Cette nourriture ira aux ouvriers et au personnel du ch\xE2teau j'imagine\u2026 "
   m_comebackMessage: Merci pour cet arrangement
   m_choiceMade:

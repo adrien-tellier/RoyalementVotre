@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RichardAbbevilleFood
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20
+  m_prompt: 10
   m_endPrompt: Merci beaucoup ! A table, soldats !
   m_comebackMessage: Merci beaucoup!
   m_choiceMade:

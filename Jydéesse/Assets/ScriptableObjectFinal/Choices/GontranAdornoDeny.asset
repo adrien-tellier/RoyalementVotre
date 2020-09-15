@@ -15,7 +15,7 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_prompt: "D\xE9cliner"
   m_endPrompt: "Je suis navr\xE9 que nous n'ayons pas pu conclure en bon termes cet
-    arrangement"
+    arrangement. Revenez me voir si vous changez d'avis."
   m_comebackMessage: "Je suis navr\xE9 que nous n'ayons pas pu conclure en bon termes
     cet arrangement"
   m_choiceMade:

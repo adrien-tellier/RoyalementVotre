@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: "M\xE9lusineDAbatiFood"
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 20
-  m_endPrompt: "Mille mercis Majest\xE9!"
+  m_prompt: 10
+  m_endPrompt: "Merci beaucoup, Majest\xE9, mais je vous assure que mes g\xE2teaux
+    sont meilleurs !"
   m_comebackMessage: "Mille mercis Majest\xE9!"
   m_choiceMade:
     m_PersistentCalls:

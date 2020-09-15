@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PhilibertBeauFood
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
-  m_prompt: 2
-  m_endPrompt: "Merci beaucoup Majest\xE9 , j\u2019irais m\u2019acheter ma charrue
-    demain !"
+  m_prompt: 10
+  m_endPrompt: "Merci Majest\xE9, je pourrais donner ce grain au boulanger, et j'essaierai
+    de r\xE9parer ma charrue demain."
   m_comebackMessage: "Merci beaucoup Majest\xE9"
   m_choiceMade:
     m_PersistentCalls:

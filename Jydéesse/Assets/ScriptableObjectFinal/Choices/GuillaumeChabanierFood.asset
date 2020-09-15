@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
   m_prompt: 7
-  m_endPrompt: "Merci, j\u2019irai l\u2019\xE9changer contre de l\u2019argent \xE0
-    Blanche"
+  m_endPrompt: "Merci, j\u2019irai vendre \xE7a \xE0 Blanche"
   m_comebackMessage: Merci encore pour votre aide
   m_choiceMade:
     m_PersistentCalls:

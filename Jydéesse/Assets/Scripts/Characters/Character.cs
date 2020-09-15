@@ -10,16 +10,11 @@ public enum ECharacterType
     PEASANT
 }
 
+[RequireComponent(typeof(Animator))]
 public class Character : MonoBehaviour
 {
     [SerializeField]
     private Player m_player = null;
-
-    [SerializeField]
-    private Sprite m_spriteLookLeft = null;
-
-    [SerializeField]
-    private Sprite m_spriteLookRght = null;
 
     [SerializeField]
     public ECharacterType m_type;
@@ -49,6 +44,13 @@ public class Character : MonoBehaviour
     [SerializeField]
     private AudioSource m_catDisatisfied;
 
+    private Animator m_animator = null;
+
+    private void Awake()
+    {
+        m_animator = gameObject.GetComponent<Animator>();
+    }
+
     private void OnMouseDown()
     {
         if (Time.timeScale != 0)
@@ -64,10 +66,9 @@ public class Character : MonoBehaviour
     private void AdaptSide()
     {
         if (m_player.transform.position.x > transform.position.x)
-            gameObject.GetComponent<SpriteRenderer>().sprite = m_spriteLookRght;
-
-        if (m_player.transform.position.x < transform.position.x)
-            gameObject.GetComponent<SpriteRenderer>().sprite = m_spriteLookLeft;
+            m_animator.SetBool("IsRight", true);
+        else
+            m_animator.SetBool("IsRight", false);
     }
 
     public void PlaySatisfiedSound()

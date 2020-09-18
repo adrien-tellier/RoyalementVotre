@@ -125,7 +125,7 @@ public class GuardEvent : Event
 
     private void EndGame()
     {
-        if (m_player.getSatisfaction() > m_player.m_requiredSatisfaction)
+        if (m_player.getSatisfaction() >= m_player.m_requiredSatisfaction)
             SceneManager.LoadScene("WinMenu");
         else
             SceneManager.LoadScene("LoseMenu");

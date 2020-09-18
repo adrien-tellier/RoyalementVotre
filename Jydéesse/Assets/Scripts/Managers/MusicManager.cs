@@ -58,6 +58,8 @@ public class MusicManager : MonoBehaviour
             m_gameMusic.Stop();
             m_ambientMusic.Stop();
             m_menuMusic.Play();
+            m_loseMusic.Stop();
+            m_winMusic.Stop();
         }
     }
 }

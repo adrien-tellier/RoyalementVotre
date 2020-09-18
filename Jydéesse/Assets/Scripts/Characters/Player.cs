@@ -182,15 +182,16 @@ public class Player : MonoBehaviour
 
     public void CheckLost()
     {
-        if (m_money == 0 || m_food == 0 || m_satisfaction == 0)
+        if (m_satisfaction <= 0)
             SceneManager.LoadScene("LoseMenu");
 
-        if (m_time <= 0)
+        if (m_money <= 0 || m_food <= 0 || m_time <= 0)
         {
-            if (m_satisfaction < m_requiredSatisfaction)
-                SceneManager.LoadScene("LooseMenu");
-            else 
+            Debug.Log(m_satisfaction + " / " + m_requiredSatisfaction);
+            if (m_satisfaction >= m_requiredSatisfaction)
                 SceneManager.LoadScene("WinMenu");
+            else 
+                SceneManager.LoadScene("LoseMenu");
         }
     }
     void MoveLeft()

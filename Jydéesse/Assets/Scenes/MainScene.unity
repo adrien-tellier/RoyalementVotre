@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startDialogue: "Majest\xE9, les temps sont durs et je dois \xE9ponger mes dettes.
-    Le moment n\u2019est peut-\xEAtre pas propice \xE0 cela mais la Cour pourrait-il
+    Le moment n\u2019est peut-\xEAtre pas propice \xE0 cela mais la Cour pourrait-elle
     me d\xE9panner d\u2019environ 20 pi\xE8ces en \xE9change de 15 g\xE2teaux fabriqu\xE9s
     par mes douces mains ?"
   m_mainTextBox: {fileID: 909483998}
@@ -23131,8 +23131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f901efe4fdcd1974bb00951444d8474c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startDialogue: "Il n\u2019y as plus de pain, pourriez vous demander \xE0 vos
-    hommes d\u2019en prendre dans la r\xE9serve, Majest\xE9 ?"
+  m_startDialogue: "Il n\u2019y a plus de pain, pourriez vous demander \xE0 vos hommes
+    d\u2019en prendre dans la r\xE9serve, Majest\xE9 ?"
   m_mainTextBox: {fileID: 909483998}
   m_speakerTextBox: {fileID: 1259605850}
   m_speakerTextBox2: {fileID: 930747307}
